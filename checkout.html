@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Online Bazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { dark: '#0A4020', light: '#145c32', accent: '#F39C12' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- SIMPLE SECURE NAVBAR -->
+    <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-brand-dark tracking-tight">ONLINE<span class="text-brand-accent">BAZAR</span></a>
+            <span class="text-sm font-semibold text-gray-500"><i class="fas fa-lock text-brand-dark mr-1"></i> Secure Checkout</span>
+        </div>
+    </nav>
+
+    <!-- CHECKOUT MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- LEFT: Shipping & Payment Details (2 Columns) -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Delivery Details -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center"><i class="fas fa-truck text-brand-dark mr-3"></i> Delivery Information</h2>
+                    <form id="checkout-form" class="space-y-4" onsubmit="handlePlaceOrder(event)">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Full Name</label>
+                                <input type="text" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Phone Number</label>
+                                <input type="tel" required placeholder="e.g., 03331234567" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Email Address</label>
+                            <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Complete Shipping Address</label>
+                            <input type="text" required placeholder="House/Apartment No, Street, Sector/Block, Area" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">City</label>
+                                <input type="text" required value="Karachi" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Country</label>
+                                <input type="text" disabled value="Pakistan" class="w-full p-3 bg-gray-200 border border-gray-200 rounded-lg text-sm text-gray-500 cursor-not-allowed font-medium">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Method (Daraz Style Cash On Delivery) -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-money-bill-wave text-brand-dark mr-3"></i> Payment Method</h2>
+                    <div class="border-2 border-brand-dark bg-green-50 p-4 rounded-xl flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-money-bill-alt text-2xl text-brand-dark"></i>
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">Cash on Delivery (COD)</p>
+                                <p class="text-xs text-gray-500">Pay with cash upon delivery to your doorstep.</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-check-circle text-brand-dark text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Order Summary Sidebar (1 Column) -->
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-28">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Order Summary</h3>
+                    
+                    <!-- Dynamic Product List Items inside Checkout -->
+                    <div id="checkout-items" class="max-h-60 overflow-y-auto space-y-3 mb-4 pr-1">
+                        <!-- Loaded by JS -->
+                    </div>
+
+                    <div class="space-y-2 border-t border-gray-100 pt-4 text-sm text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Standard Shipping</span>
+                            <span id="summary-shipping">$5.00</span>
+                        </div>
+                        <hr class="border-gray-100 my-2">
+                        <div class="flex justify-between text-base font-black text-gray-900">
+                            <span>Total (incl. VAT)</span>
+                            <span id="summary-total" class="text-brand-dark">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Trigger form submission -->
+                    <button type="submit" form="checkout-form" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-4 rounded-xl shadow-md transition-colors uppercase tracking-wider text-sm mt-6 flex items-center justify-center space-x-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Place Order Now</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SUCCESS THANK YOU MODAL -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white p-8 rounded-2xl max-w-sm w-full text-center shadow-2xl transform transition-all">
+            <div class="w-16 h-16 bg-green-100 text-brand-dark text-3xl rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-900 mb-2">Order Confirmed!</h3>
+            <p class="text-sm text-gray-500 mb-6">Thank you for shopping at Online Bazar. Your parcel is being processed and will arrive within 3-5 working days.</p>
+            <a href="index.html" class="block w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 rounded-xl transition-colors text-sm">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR CHECKOUT LOGIC -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('online_bazar_cart')) || [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Agar bina kuch add kiye direct koi checkout kholay toh home par bhej dain
+            if (cart.length === 0) {
+                alert('Your cart is empty! Redirecting to homepage.');
+                window.location.href = 'index.html';
+                return;
+            }
+            renderCheckoutSummary();
+        });
+
+        function renderCheckoutSummary() {
+            const container = document.getElementById('checkout-items');
+            const subtotalText = document.getElementById('summary-subtotal');
+            const totalText = document.getElementById('summary-total');
+            if (!container) return;
+
+            let subtotal = 0;
+            container.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                return `
+                    <div class="flex items-center justify-between text-xs border-b border-gray-50 pb-2">
+                        <div class="flex items-center space-x-2 min-w-0 flex-1">
+                            <img src="${item.image}" class="w-10 h-10 object-cover rounded border flex-shrink-0">
+                            <p class="font-bold text-gray-800 truncate">${item.name} <span class="text-gray-400 font-medium">x${item.quantity}</span></p>
+                        </div>
+                        <span class="font-bold text-gray-900 ml-2">$${itemTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            const shippingCost = 5.00; // Flat standard shipping standard
+            const grandTotal = subtotal + shippingCost;
+
+            subtotalText.innerText = `$${subtotal.toFixed(2)}`;
+            totalText.innerText = `$${grandTotal.toFixed(2)}`;
+        }
+
+        function handlePlaceOrder(event) {
+            event.preventDefault(); // stop page refresh
+            
+            // Clear storage memory cart completely
+            localStorage.removeItem('online_bazar_cart');
+            
+            // Show dynamic success alert dialog popup overlay modal
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

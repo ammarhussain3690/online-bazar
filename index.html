@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Bazar | Your Premium Shopping Destination</title>
+    <title>Online Bazar | Pakistan's Premium Store</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,7 +12,7 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0A4020',
+                            dark: '#0A4020', // Premium Pakistan Dark Green
                             light: '#145c32',
                             accent: '#F39C12'
                         }
@@ -21,214 +21,152 @@
             }
         }
     </script>
-    <!-- FontAwesome for Premium Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .sticky-nav { position: sticky; top: 0; z-index: 50; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #0A4020; border-radius: 10px; }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-gray-50 text-gray-800 antialiased font-sans">
 
-    <!-- STICKY NAVBAR -->
-    <nav class="sticky-nav bg-white shadow-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-black text-brand-dark tracking-tight">ONLINE<span class="text-brand-accent">BAZAR</span></span>
-                </a>
-
-                <!-- Search Bar (Amazon/Daraz Style) -->
-                <div class="hidden md:flex flex-1 max-w-2xl mx-8">
-                    <div class="relative w-full">
-                        <input type="text" id="search-input" placeholder="Search for products, brands, and categories..." class="w-full px-4 py-2.5 bg-gray-100 border border-transparent rounded-l-lg focus:outline-none focus:bg-white focus:border-brand-dark text-sm transition-all">
-                        <button class="absolute right-0 top-0 h-full bg-brand-dark hover:bg-brand-light text-white px-6 rounded-r-lg transition-colors">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Navigation Links & Icons -->
-                <div class="flex items-center space-x-6">
-                    <a href="index.html" class="hidden lg:block text-sm font-semibold text-brand-dark border-b-2 border-brand-dark pb-1">Home</a>
-                    <a href="about.html" class="hidden lg:block text-sm font-medium text-gray-600 hover:text-brand-dark transition-colors">About</a>
-                    <a href="contact.html" class="hidden lg:block text-sm font-medium text-gray-600 hover:text-brand-dark transition-colors">Contact</a>
-                    
-                    <!-- Cart Trigger -->
-                    <button id="cart-toggle" class="relative p-2 text-gray-700 hover:text-brand-dark transition-colors focus:outline-none">
-                        <i class="fas fa-shopping-bag text-xl"></i>
-                        <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-dark text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
-                    </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-700 hover:text-brand-dark focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+    <!-- TOP HEADER UTILITY BANNER -->
+    <div class="bg-brand-dark text-white text-[11px] font-bold py-2 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span><i class="fas fa-phone text-brand-accent mr-1.5"></i> 021-111-BAZAR</span>
+                <span class="hidden sm:inline opacity-75">|</span>
+                <span class="hidden sm:inline"><i class="fas fa-envelope opacity-75 mr-1.5"></i> support@onlinebazar.pk</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- MOBILE MENU SIDEBAR -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
-        <div class="bg-white w-64 h-full p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300">
-            <div>
-                <div class="flex justify-between items-center mb-8">
-                    <span class="text-xl font-bold text-brand-dark">Menu</span>
-                    <button id="mobile-menu-close" class="text-gray-500 hover:text-red-500"><i class="fas fa-times text-xl"></i></button>
-                </div>
-                <div class="space-y-4 flex flex-col">
-                    <a href="index.html" class="text-brand-dark font-semibold">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-brand-dark">About</a>
-                    <a href="contact.html" class="text-gray-600 hover:text-brand-dark">Contact</a>
-                </div>
+            <div class="flex items-center space-x-4">
+                <span class="bg-brand-light px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider text-brand-accent">🇵🇰 Cash On Delivery Across Pakistan</span>
             </div>
         </div>
     </div>
 
-    <!-- HERO BANNER -->
-    <header class="bg-brand-dark text-white py-16 px-4 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="bg-brand-light text-sm font-semibold px-3 py-1 rounded-full uppercase tracking-wider text-green-300">Big Summer Sale</span>
-                <h1 class="text-4xl md:text-5xl font-black mt-4 mb-6 leading-tight">Premium Essentials,<br>Delivered To Your Door.</h1>
-                <p class="text-gray-200 mb-8 max-w-md">Discover authentic products, unbeatable prices, and lightning-fast delivery across thousands of categories.</p>
-                <a href="#featured-products" class="bg-white text-brand-dark font-bold px-8 py-3.5 rounded-lg shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-0.5 inline-block">Shop Collection</a>
+    <!-- MAIN INTERACTIVE NAVBAR -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- BRANDING LOGO -->
+            <a href="index.html" class="text-2xl font-black text-brand-dark tracking-tight flex-shrink-0">
+                ONLINE<span class="text-brand-accent">BAZAR</span>
+            </a>
+
+            <!-- SEARCH SYSTEM FIELD -->
+            <div class="flex-1 max-w-xl relative hidden md:block">
+                <input type="text" id="search-input" placeholder="Search for products, brands, and categories..." class="w-full pl-11 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-dark focus:bg-white transition-all">
+                <i class="fas fa-search text-gray-400 absolute left-4 top-3.5 text-sm"></i>
             </div>
-            <div class="hidden md:flex justify-center">
-                <i class="fas fa-shopping-basket text-white text-opacity-10 text-[18rem] absolute -right-10 -bottom-10 pointer-events-none"></i>
-                <div class="bg-brand-light p-8 rounded-2xl shadow-2xl border border-green-800 text-center max-w-sm">
-                    <div class="text-yellow-400 text-3xl mb-2"><i class="fas fa-bolt"></i></div>
-                    <p class="font-bold text-xl uppercase tracking-wider">Up to 40% Off</p>
-                    <p class="text-sm text-gray-300 mt-2">On verified premium labels this week only.</p>
-                </div>
+
+            <!-- ACTION BUTTON UTILITIES -->
+            <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
+                <button id="cart-toggle" class="relative p-2.5 text-gray-700 hover:text-brand-dark hover:bg-gray-50 rounded-xl transition-colors">
+                    <i class="fas fa-shopping-basket text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-accent text-brand-dark text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden p-2.5 text-gray-700 hover:bg-gray-50 rounded-xl">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- PRODUCT CATEGORIES -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center"><i class="fas fa-th-large text-brand-dark mr-3"></i>Browse Categories</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="categories-grid">
-            <!-- Rendered by JS -->
-        </div>
-    </section>
-
-    <!-- FEATURED PRODUCTS GRID -->
-    <section id="featured-products" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-100">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 flex items-center"><i class="fas fa-fire text-brand-dark mr-3"></i>Featured Products</h2>
-            <span class="text-sm text-gray-500 font-medium">Showing top-tier deals</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
-            <!-- Rendered by JS -->
-        </div>
-    </section>
-
-    <!-- CUSTOMER REVIEWS -->
-    <section class="bg-white py-16 border-t border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 text-center mb-12">What Our Customers Say</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex text-yellow-400 mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm italic mb-4">"Online Bazar has completely changed how I shop online. The delivery was remarkably fast, and the item packaging matched premium global stores."</p>
-                    <div class="font-bold text-gray-900 text-sm">- Sarah K.</div>
+    <!-- MOBILE NAVIGATION MENU -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="mobile-menu-close"></div>
+        <div class="absolute inset-y-0 left-0 max-w-xs w-full bg-white shadow-xl p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-gray-100">
+                    <span class="text-xl font-black text-brand-dark">NAVIGATION</span>
+                    <i class="fas fa-times text-xl text-gray-400 cursor-pointer" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></i>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex text-yellow-400 mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm italic mb-4">"Exceptional customer care! I needed to exchange a size for the Smartwatch, and their agent resolved it seamlessly over WhatsApp within hours."</p>
-                    <div class="font-bold text-gray-900 text-sm">- Ahmed R.</div>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex text-yellow-400 mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                    <p class="text-gray-600 text-sm italic mb-4">"Authentic premium items. The quality of the Leather Wallet exceeded my expectations for this price segment. Strongly recommended."</p>
-                    <div class="font-bold text-gray-900 text-sm">- Maria T.</div>
+                <div class="py-6 relative">
+                    <input type="text" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs">
+                    <i class="fas fa-search text-gray-400 absolute left-3.5 top-5 text-xs"></i>
                 </div>
             </div>
+            <div class="text-[11px] text-gray-400 font-medium">© 2026 Online Bazar Inc.</div>
         </div>
-    </section>
+    </div>
 
-    <!-- SHOPPING CART SIDEBAR -->
+    <!-- MAIN STOREFRONT WORKSPACE -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- HERO DISPLAY BANNER -->
+        <section class="bg-gradient-to-br from-brand-dark to-brand-light rounded-3xl text-white p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-lg mb-12">
+            <div class="relative z-10 max-w-md">
+                <span class="bg-brand-accent text-brand-dark text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Premium Collection</span>
+                <h1 class="text-3xl sm:text-4xl font-black tracking-tight mb-4 leading-tight">Elevate Your Everyday Lifestyle Experience</h1>
+                <p class="text-sm opacity-85 mb-8 font-medium leading-relaxed">Discover custom handpicked curation ranging across cutting-edge technology interfaces to elite corporate fashion wear templates.</p>
+                <a href="#featured-products" class="bg-white text-brand-dark font-bold text-xs px-6 py-3.5 rounded-xl shadow hover:bg-gray-50 transition-colors uppercase tracking-wider">Browse Storefront</a>
+            </div>
+            <div class="absolute right-0 bottom-0 top-0 w-1/2 opacity-10 hidden md:block">
+                <i class="fas fa-store text-[250px] absolute -right-10 -bottom-10 text-white"></i>
+            </div>
+        </section>
+
+        <!-- CATEGORIES FILTERS SECTION -->
+        <section class="mb-12">
+            <h2 class="text-sm font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-2 h-4 bg-brand-dark rounded-full mr-2.5 inline-block"></span>Browse Categories
+            </h2>
+            <div id="categories-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Dynamically loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS GRID BLOCK -->
+        <section id="featured-products">
+            <h2 class="text-sm font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-2 h-4 bg-brand-dark rounded-full mr-2.5 inline-block"></span>Featured Products
+            </h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Dynamically loaded by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- SHOPPING CART PANEL SIDEBAR DRAW-OUT -->
     <div id="cart-sidebar" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-black bg-opacity-50 transition-opacity" id="cart-overlay"></div>
-        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <div class="p-6 border-b border-gray-200 flex items-center justify-between bg-brand-dark text-white">
-                    <h2 class="text-lg font-bold flex items-center"><i class="fas fa-shopping-bag mr-2"></i> Your Basket</h2>
-                    <button id="cart-close" class="p-2 text-white hover:text-gray-300"><i class="fas fa-times text-xl"></i></button>
+        <div id="cart-overlay" class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+                
+                <!-- Cart Top Header Header -->
+                <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <h3 class="text-lg font-black text-gray-900 flex items-center">
+                        <i class="fas fa-shopping-basket text-brand-dark mr-3"></i> Shopping Basket
+                    </h3>
+                    <button id="cart-close" class="text-gray-400 hover:text-gray-500 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
                 </div>
-                <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container">
-                    <!-- Dynamic Cart Items -->
+
+                <!-- Cart Dynamic Scroll Container Space -->
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic rendering by JS -->
                 </div>
-                <div class="p-6 border-t border-gray-200 bg-gray-50">
-                    <div class="flex justify-between text-base font-bold text-gray-900 mb-4">
-                        <span>Subtotal</span>
-                        <span id="cart-subtotal">$0.00</span>
+
+                <!-- Checkout pricing computation block summary area -->
+                <div class="p-6 border-t border-gray-100 bg-gray-50">
+                    <div class="flex justify-between text-sm text-gray-500 font-semibold mb-2">
+                        <span>Estimated Subtotal</span>
+                        <span id="cart-subtotal" class="text-gray-900 font-black">$0.00</span>
                     </div>
-                    <button class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 px-4 rounded-lg shadow transition-colors uppercase tracking-wider text-sm">Proceed To Checkout</button>
+                    <p class="text-[11px] text-gray-400 mb-4">Shipping processing calculation and potential taxes adjusted securely downstream.</p>
+                    
+                    <!-- DARAZ-STYLE DIRECT CHECKOUT LINK PATHWAY -->
+                    <a href="checkout.html" class="w-full text-center block bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-4 rounded-xl shadow transition-colors uppercase tracking-wider text-xs">
+                        Proceed To Checkout
+                    </a>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- NEWSLETTER SIGNUP -->
-    <section class="bg-gray-100 py-16 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl font-bold text-gray-900 mb-3">Join the Elite Club</h2>
-            <p class="text-gray-600 text-sm mb-8">Subscribe to get notification alerts on premium stock collections and private flash sales.</p>
-            <form class="flex flex-col sm:flex-row max-w-md mx-auto gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" placeholder="Enter your email address" required class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-brand-dark text-sm shadow-sm">
-                <button type="submit" class="bg-brand-dark hover:bg-brand-light text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm shadow">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-brand-dark text-white border-t border-green-900 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div>
-                <span class="text-xl font-black tracking-tight text-white mb-4 block">ONLINE<span class="text-brand-accent">BAZAR</span></span>
-                <p class="text-gray-400 text-xs leading-relaxed">The premier online ecosystem connecting quality lifestyle items directly to your doorstep with guaranteed authenticity.</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm uppercase tracking-wider text-green-400 mb-4">Corporate Info</h4>
-                <ul class="space-y-2 text-xs text-gray-300">
-                    <li><a href="about.html" class="hover:text-white transition-colors">About Corporate Identity</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition-colors">Store Finder</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm uppercase tracking-wider text-green-400 mb-4">Help Center</h4>
-                <ul class="space-y-2 text-xs text-gray-300">
-                    <li><a href="contact.html" class="hover:text-white transition-colors">Track Orders</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Returns & Refunds</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">FAQ Support</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm uppercase tracking-wider text-green-400 mb-4">Follow Our Feed</h4>
-                <div class="flex space-x-4 mt-2">
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fab fa-instagram text-xs"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fab fa-twitter text-xs"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-green-900 pt-6 text-center text-xs text-gray-400">
-            &copy; 2026 Online Bazar. All rights reserved. Built for seamless e-commerce.
-        </div>
-    </footer>
-<!-- PRODUCT DETAIL MODAL (POPUP) -->
+    <!-- PRODUCT DETAIL DYNAMIC POPUP OVERLAY MODAL -->
     <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
         <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <!-- Overlay background -->
             <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 transition-opacity"></div>
-
-            <!-- Modal Content Box -->
+            
             <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
                 <div class="absolute top-4 right-4 z-10">
                     <button id="modal-close" class="bg-gray-100 hover:bg-gray-200 text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
@@ -237,18 +175,16 @@
                 </div>
                 
                 <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Left: Images Section -->
+                    <!-- Image Layout Template Left Pane -->
                     <div>
                         <div class="bg-gray-50 rounded-xl overflow-hidden mb-4 border border-gray-100 aspect-square flex items-center justify-center">
                             <img id="modal-main-img" src="" alt="" class="w-full h-full object-cover">
                         </div>
-                        <!-- Thumbnails Row -->
                         <div id="modal-thumbnails" class="grid grid-cols-5 gap-2">
-                            <!-- Thumbnails dynamically injected by JS -->
+                            <!-- Injected dynamically by app.js -->
                         </div>
                     </div>
-
-                    <!-- Right: Product Information -->
+                    <!-- Technical Meta Data Panel Right Pane -->
                     <div class="flex flex-col justify-between">
                         <div>
                             <span id="modal-cat" class="text-xs font-bold uppercase tracking-wider text-green-600 bg-green-50 px-2.5 py-1 rounded-full">Category</span>
@@ -257,9 +193,8 @@
                             <div id="modal-price" class="text-3xl font-black text-brand-dark mb-4">$0.00</div>
                             <hr class="border-gray-100 my-4">
                             <p class="text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Description</p>
-                            <p id="modal-desc" class="text-sm text-gray-600 leading-relaxed">Product description goes here.</p>
+                            <p id="modal-desc" class="text-sm text-gray-600 leading-relaxed">Product description text parsing array.</p>
                         </div>
-
                         <div class="mt-8">
                             <button id="modal-add-btn" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center space-x-3 transition-colors shadow-md">
                                 <i class="fas fa-shopping-cart"></i>
@@ -272,12 +207,13 @@
         </div>
     </div>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/923140259689" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50" title="Chat with support">
-        <i class="fab fa-whatsapp text-3xl"></i>
+    <!-- EMERGENCY CUSTOMER CARE WHATSAPP FLOATING HUB -->
+    <a href="https://wa.me/923331234567" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold text-xs uppercase tracking-wider whitespace-nowrap">Chat With Us</span>
     </a>
 
-    <!-- Application Script Logic -->
+    <!-- STORE DATA ARCHITECTURE COMPILER CORE SCRIPT -->
     <script src="app.js"></script>
 </body>
 </html>
