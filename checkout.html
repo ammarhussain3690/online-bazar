@@ -41,25 +41,25 @@
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Full Name</label>
-                                <input type="text" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                                <input type="text" id="cust-name" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Phone Number</label>
-                                <input type="tel" required placeholder="e.g., 03331234567" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                                <input type="tel" id="cust-phone" required placeholder="e.g., 03331234567" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
                             </div>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Email Address</label>
-                            <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                            <input type="email" id="cust-email" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Complete Shipping Address</label>
-                            <input type="text" required placeholder="House/Apartment No, Street, Sector/Block, Area" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                            <input type="text" id="cust-address" required placeholder="House/Apartment No, Street, Sector/Block, Area" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
                         </div>
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase mb-2">City</label>
-                                <input type="text" required value="Karachi" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
+                                <input type="text" id="cust-city" required value="Karachi" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-dark focus:bg-white">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Country</label>
@@ -69,7 +69,7 @@
                     </form>
                 </div>
 
-                <!-- Payment Method (Daraz Style Cash On Delivery) -->
+                <!-- Payment Method -->
                 <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100">
                     <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i class="fas fa-money-bill-wave text-brand-dark mr-3"></i> Payment Method</h2>
                     <div class="border-2 border-brand-dark bg-green-50 p-4 rounded-xl flex items-center justify-between">
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT: Order Summary Sidebar (1 Column) -->
+            <!-- RIGHT: Order Summary Sidebar -->
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-28">
                     <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">Order Summary</h3>
@@ -111,10 +111,10 @@
                         </div>
                     </div>
 
-                    <!-- Trigger form submission -->
+                    <!-- Submit Button -->
                     <button type="submit" form="checkout-form" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-4 rounded-xl shadow-md transition-colors uppercase tracking-wider text-sm mt-6 flex items-center justify-center space-x-2">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Place Order Now</span>
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Place Order via WhatsApp</span>
                     </button>
                 </div>
             </div>
@@ -128,18 +128,17 @@
             <div class="w-16 h-16 bg-green-100 text-brand-dark text-3xl rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                 <i class="fas fa-check"></i>
             </div>
-            <h3 class="text-2xl font-black text-gray-900 mb-2">Order Confirmed!</h3>
-            <p class="text-sm text-gray-500 mb-6">Thank you for shopping at Online Bazar. Your parcel is being processed and will arrive within 3-5 working days.</p>
+            <h3 class="text-2xl font-black text-gray-900 mb-2">Order Sent!</h3>
+            <p class="text-sm text-gray-500 mb-6">Your order payload has been generated and sent to our official WhatsApp handler dashboard for routing dispatch!</p>
             <a href="index.html" class="block w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 rounded-xl transition-colors text-sm">Continue Shopping</a>
         </div>
     </div>
 
-    <!-- SCRIPT FOR CHECKOUT LOGIC -->
+    <!-- SCRIPT FOR CHECKOUT & WHATSAPP LOGIC -->
     <script>
         let cart = JSON.parse(localStorage.getItem('online_bazar_cart')) || [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Agar bina kuch add kiye direct koi checkout kholay toh home par bhej dain
             if (cart.length === 0) {
                 alert('Your cart is empty! Redirecting to homepage.');
                 window.location.href = 'index.html';
@@ -169,7 +168,7 @@
                 `;
             }).join('');
 
-            const shippingCost = 5.00; // Flat standard shipping standard
+            const shippingCost = 5.00; 
             const grandTotal = subtotal + shippingCost;
 
             subtotalText.innerText = `$${subtotal.toFixed(2)}`;
@@ -177,12 +176,47 @@
         }
 
         function handlePlaceOrder(event) {
-            event.preventDefault(); // stop page refresh
+            event.preventDefault(); 
             
-            // Clear storage memory cart completely
+            // 1. Fetching explicit user information from form inputs
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const email = document.getElementById('cust-email').value;
+            const address = document.getElementById('cust-address').value;
+            const city = document.getElementById('cust-city').value;
+
+            // 2. Fetching implicit product payloads
+            let productDetails = "";
+            let subtotal = 0;
+            cart.forEach(item => {
+                productDetails += `- ${item.name} (Qty: ${item.quantity}) = $${(item.price * item.quantity).toFixed(2)}\n`;
+                subtotal += item.price * item.quantity;
+            });
+            
+            const totalBill = subtotal + 5.00;
+
+            // 3. String building structured message template
+            const message = `🔔 *NEW BAZAR ORDER RECEIVED* 🔔\n\n` +
+                            `👤 *Customer:* ${name}\n` +
+                            `📞 *Phone:* ${phone}\n` +
+                            `📧 *Email:* ${email}\n` +
+                            `📍 *Address:* ${address}, ${city}\n\n` +
+                            `📦 *Items Ordered:* \n${productDetails}\n` +
+                            `💰 *Total Bill (incl. Shipping):* $${totalBill.toFixed(2)}\n\n` +
+                            `Kindly process and verify this structural layout parcel!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            
+            // 📝 APNA REAL WHATSAPP NUMBER IDHAR LIKHEIN (Bina zero ke 92 ke sath)
+            const myWhatsAppNumber = "923140259689"; 
+
+            // Clear operational cart memory buffer 
             localStorage.removeItem('online_bazar_cart');
             
-            // Show dynamic success alert dialog popup overlay modal
+            // Execute parallel link redirection routing
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Invoke success modal display anchor state
             document.getElementById('success-modal').classList.remove('hidden');
         }
     </script>
