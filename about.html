@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Online Bazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { dark: '#0A4020', light: '#145c32', accent: '#F39C12' } } } } }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- NAVBAR (Matches Index) -->
+    <nav class="sticky top-0 bg-white shadow-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-brand-dark tracking-tight">ONLINE<span class="text-brand-accent">BAZAR</span></a>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-brand-dark">Home</a>
+                <a href="about.html" class="text-sm font-semibold text-brand-dark border-b-2 border-brand-dark pb-1">About</a>
+                <a href="contact.html" class="text-sm font-medium text-gray-600 hover:text-brand-dark">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <h1 class="text-4xl font-black text-brand-dark mb-4 text-center">Our Story</h1>
+        <p class="text-gray-600 text-center max-w-xl mx-auto mb-12">Redefining high-tier modern e-commerce since day one by putting consumer values and genuine items ahead of margins.</p>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6 text-gray-700 leading-relaxed mb-12">
+            <p>Welcome to <strong>Online Bazar</strong>, your ultimate platform for exploring top-tier products spanning daily essentials, lifestyle apparel, and premium modern consumer electronics. Curating items built to match structural elegance with raw utility, we source solely through authorized pathways.</p>
+            <p>Inspired by hyper-efficient logistics networks like Amazon and local accessibility hubs like Daraz, we bridge regional barriers. We maintain a zero-tolerance baseline for imitation components.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="w-12 h-12 bg-green-50 text-brand-dark flex items-center justify-center rounded-full mx-auto mb-4 text-xl"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="font-bold text-gray-900 mb-2">100% Authentic</h3>
+                <p class="text-xs text-gray-500">Every catalog item passes standard verified verification audits before distribution.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="w-12 h-12 bg-green-50 text-brand-dark flex items-center justify-center rounded-full mx-auto mb-4 text-xl"><i class="fas fa-truck"></i></div>
+                <h3 class="font-bold text-gray-900 mb-2">Secure Shipping</h3>
+                <p class="text-xs text-gray-500">Fully monitored express route packaging guarantees complete safely upon arrival.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="w-12 h-12 bg-green-50 text-brand-dark flex items-center justify-center rounded-full mx-auto mb-4 text-xl"><i class="fas fa-headset"></i></div>
+                <h3 class="font-bold text-gray-900 mb-2">Instant Response</h3>
+                <p class="text-xs text-gray-500">Dedicated operational channels keep help simple and direct, 24 hours a day.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER LINKED BACK -->
+    <footer class="bg-brand-dark text-white py-8 text-center text-xs mt-12 border-t border-green-900">
+        &copy; 2026 Online Bazar. Authentic retail excellence.
+    </footer>
+</body>
+</html>
