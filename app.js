@@ -3,7 +3,7 @@ const CATEGORIES = [
     { id: 'electronics', name: 'Electronics', icon: 'fa-laptop' },
     { id: 'fashion', name: 'Fashion & Style', icon: 'fa-tshirt' },
     { id: 'home', name: 'Home Living', icon: 'fa-couch' },
-    { id: 'groceries', name: 'Groceries', icon: 'fa-apple-alt' },
+    { id: 'crockery', name: 'Kitchen Crockery', icon: 'fa-utensils' },
     { id: 'beauty', name: 'Beauty & Health', icon: 'fa-heart' },
     { id: 'sports', name: 'Sports Apparel', icon: 'fa-dumbbell' }
 ];
