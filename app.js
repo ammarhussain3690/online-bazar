@@ -9,19 +9,19 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-    { id: 1, name: 'Premium Noise-Cancelling Headphones', price: 299.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60'] },
-    { id: 2, name: 'Minimalist Leather Chronograph Watch', price: 189.50, category: 'fashion', rating: 4, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60'] },
-    { id: 3, name: 'Ergonomic Wireless Mesh Mouse', price: 79.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60'] },
-    { id: 4, name: 'Eco-Friendly Vacuum Thermos Flask', price: 34.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60'] },
-    { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 24.50, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60'] },
-    { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 145.00, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60'] },
-    { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 59.00, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60'] },
-    { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60'] },
+    { id: 1, name: 'Premium Noise-Cancelling Headphones', price: 8500, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60'] },
+    { id: 2, name: 'Minimalist Leather Chronograph Watch', price: 5200, category: 'fashion', rating: 4, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60'] },
+    { id: 3, name: 'Ergonomic Wireless Mesh Mouse', price: 2400, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60'] },
+    { id: 4, name: 'Eco-Friendly Vacuum Thermos Flask', price: 1800, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60'] },
+    { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 950, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60'] },
+    { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 4500, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60'] },
+    { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 1650, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60'] },
+    { id: 8, name: 'Industrial Oak Accent Side Table', price: 8900, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60'] },
     
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 25.00, 
+        price: 2450, // Pakistani currency rate set ho gaya
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
@@ -118,7 +118,7 @@ function renderProducts(items) {
                     </div>
                     <div class="mt-4">
                         <div class="flex items-baseline justify-between mb-3">
-                            <span class="text-lg font-black text-brand-dark">$${product.price.toFixed(2)}</span>
+                            <span class="text-base font-black text-brand-dark">Rs. ${product.price.toLocaleString()}</span>
                             <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded text-gray-500 font-medium capitalize">${product.category}</span>
                         </div>
                         <button onclick="addToCart(${product.id})" class="w-full bg-brand-dark hover:bg-brand-light text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center space-x-2 transition-colors">
@@ -141,7 +141,7 @@ window.openProductModal = function(productId) {
     currentImageIndex = 0;
 
     document.getElementById('modal-title').innerText = product.name;
-    document.getElementById('modal-price').innerText = `$${product.price.toFixed(2)}`;
+    document.getElementById('modal-price').innerText = `Rs. ${product.price.toLocaleString()}`;
     document.getElementById('modal-cat').innerText = product.category;
     document.getElementById('modal-desc').innerText = product.description || 'No description available.';
     
@@ -233,7 +233,7 @@ function updateCartUI() {
 
     if (cart.length === 0) {
         container.innerHTML = `<div class="text-center py-16 text-gray-400 text-sm flex flex-col items-center justify-center h-full"><i class="fas fa-shopping-basket text-4xl mb-3 opacity-40"></i>Your shopping cart is empty</div>`;
-        subtotalText.innerText = "$0.00";
+        subtotalText.innerText = "Rs. 0";
         return;
     }
 
@@ -246,7 +246,7 @@ function updateCartUI() {
                 <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md bg-white border border-gray-200 flex-shrink-0">
                 <div class="flex-1 min-w-0">
                     <h4 class="text-xs font-bold text-gray-800 truncate mb-1">${item.name}</h4>
-                    <span class="text-sm font-black text-brand-dark block mb-2">$${item.price.toFixed(2)}</span>
+                    <span class="text-sm font-black text-brand-dark block mb-2">Rs. ${item.price.toLocaleString()}</span>
                     <div class="flex items-center space-x-2">
                         <button onclick="modifyQuantity(${item.id}, -1)" class="w-6 h-6 bg-white border border-gray-300 hover:bg-gray-100 rounded flex items-center justify-center text-xs font-bold text-gray-600">-</button>
                         <span class="text-xs font-bold text-gray-800 w-4 text-center">${item.quantity}</span>
@@ -257,5 +257,5 @@ function updateCartUI() {
         `;
     }).join('');
 
-    subtotalText.innerText = `$${subtotal.toFixed(2)}`;
+    subtotalText.innerText = `Rs. ${subtotal.toLocaleString()}`;
 }
