@@ -12,7 +12,7 @@ const PRODUCTS = [
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 2450, 
+        price: 950, 
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
