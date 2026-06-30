@@ -29,11 +29,11 @@ const PRODUCTS = [
         price: 1500, 
         category: 'electronics', 
         rating: 5, 
-        image: 'router-1.jpg', // Main Display Picture
+        image: 'router-1.jpeg', // .jpg se badal kar .jpeg kar diya hai
         images: [
-            'router-1.jpg', // Picture 1
-            'router-2.jpg', // Picture 2
-            'router-3.jpg'  // Picture 3
+            'router-1.jpeg',
+            'router-2.jpeg',
+            'router-3.jpeg'
         ], 
         description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
     }
