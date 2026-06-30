@@ -16,7 +16,19 @@ const PRODUCTS = [
     { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 24.50, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60' },
     { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 145.00, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60' },
     { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 59.00, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60' },
-    { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60' }
+    { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60' },
+    
+    // NAYA PRODUCT: P9 WIRELESS HEADPHONES (YAHAN ADD HO GAYA)
+    { 
+        id: 9, 
+        name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
+        price: 25.00, // Is price ko aap apne mutabiq set kar sakte hain
+        category: 'electronics', 
+        rating: 5, 
+        image: 'p9-1.jpg', // Main Display Image
+        images: ['p9-1.jpg', 'p9-2.jpg', 'p9-3.jpg'], // Multi-pictures for slider
+        description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
+    }
 ];
 
 // --- SHOPPING CART STATE MANAGEMENT ---
@@ -103,7 +115,9 @@ function renderProducts(items) {
     container.innerHTML = items.map(product => {
         let stars = '';
         for (let i = 0; i < 5; i++) {
-            stars += `<i class="fas fa-star ${i < product.rating ? 'text-yellow-400' : 'text-gray-200'} text-[10px]"></i>`;
+            for (let i = 0; i < 5; i++) {
+                stars += `<i class="fas fa-star ${i < product.rating ? 'text-yellow-400' : 'text-gray-200'} text-[10px]"></i>`;
+            }
         }
 
         return `
@@ -150,7 +164,6 @@ window.addToCart = function(productId) {
     }
 
     updateCartUI();
-    // Open sidebar drawer to instantly provide visual context confirmation
     document.getElementById('cart-sidebar').classList.remove('hidden');
 };
 
@@ -168,11 +181,9 @@ window.modifyQuantity = function(productId, delta) {
 function updateCartUI() {
     localStorage.setItem('online_bazar_cart', JSON.stringify(cart));
     
-    // Total Items count
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     document.getElementById('cart-count').innerText = totalCount;
 
-    // Sidebar rendering
     const container = document.getElementById('cart-items-container');
     const subtotalText = document.getElementById('cart-subtotal');
     if (!container || !subtotalText) return;
