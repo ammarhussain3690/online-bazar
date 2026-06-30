@@ -18,15 +18,19 @@ const PRODUCTS = [
     { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 59.00, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60' },
     { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60' },
     
-    // NAYA PRODUCT: P9 WIRELESS HEADPHONES (YAHAN ADD HO GAYA)
+    // P9 WIRELESS HEADPHONES WITH YOUR EXACT GITHUB FILE NAMES
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 25.00, // Is price ko aap apne mutabiq set kar sakte hain
+        price: 25.00, 
         category: 'electronics', 
         rating: 5, 
-        image: 'p9-1.jpg', // Main Display Image
-        images: ['p9-1.jpg', 'p9-2.jpg', 'p9-3.jpg'], // Multi-pictures for slider
+        image: 'p9-1.jpg.jpeg', // Fixed extension matching your GitHub repo
+        images: [
+            'p9-1.jpg.jpeg',
+            'p9-2.jpg.jpeg',
+            'p9-3.jpg.jpeg'
+        ], 
         description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
     }
 ];
@@ -43,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initUIComponents() {
-    // Cart Slide Out Hooks
     const cartToggle = document.getElementById('cart-toggle');
     const cartClose = document.getElementById('cart-close');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -59,7 +62,6 @@ function initUIComponents() {
         cartOverlay.addEventListener('click', () => cartSidebar.classList.add('hidden'));
     }
 
-    // Responsive Mobile Drawer Hooks
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -77,7 +79,6 @@ function initUIComponents() {
         });
     }
 
-    // Dynamic Search Filter Logic
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -114,10 +115,11 @@ function renderProducts(items) {
 
     container.innerHTML = items.map(product => {
         let stars = '';
-        for (let i = 0; i < 5; i++) {
-            for (let i = 0; i < 5; i++) {
-                stars += `<i class="fas fa-star ${i < product.rating ? 'text-yellow-400' : 'text-gray-200'} text-[10px]"></i>`;
-            }
+        for (let i = 0; i < product.rating; i++) {
+            stars += `<i class="fas fa-star text-yellow-400 text-[10px]"></i>`;
+        }
+        for (let i = product.rating; i < 5; i++) {
+            stars += `<i class="fas fa-star text-gray-200 text-[10px]"></i>`;
         }
 
         return `
