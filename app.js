@@ -12,7 +12,7 @@ const PRODUCTS = [
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 950, 
+        price: 950, // Price badal kar 950 kar di hai
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
@@ -43,14 +43,29 @@ const PRODUCTS = [
         price: 700, 
         category: 'fashion', 
         rating: 5, 
-        image: 'passport-1.jpeg', // Main Image
+        image: 'passport-1.jpeg', 
         images: [
-            'passport-1.jpeg', // Pic 1
-            'passport-2.jpeg', // Pic 2
-            'passport-3.jpeg', // Pic 3
-            'passport-4.jpeg'  // Pic 4
+            'passport-1.jpeg',
+            'passport-2.jpeg',
+            'passport-3.jpeg',
+            'passport-4.jpeg'
         ], 
         description: 'Premium quality PU leather passport holder and multi-functional travel wallet. Features a dedicated passport slot, multi-card organizing slots, and a secure cash pocket. Sleek, lightweight, and durable design suitable for both men and women.'
+    },
+    { 
+        id: 12, 
+        name: 'Multi Storage Makeup Box Organizer, Creative Organizer for Jewelry, Necklace, Nail Polish, Earring, Cosmetics', 
+        price: 550, 
+        category: 'beauty', 
+        rating: 5, 
+        image: 'makeup-1.jpeg', // Main Image
+        images: [
+            'makeup-1.jpeg', // Pic 1
+            'makeup-2.jpeg', // Pic 2
+            'makeup-3.jpeg', // Pic 3
+            'makeup-4.jpeg'  // Pic 4
+        ], 
+        description: 'Creative and elegant multi-storage makeup box organizer. Perfect desktop organizer for women to store cosmetics, jewelry, necklaces, nail polish, earrings, and other small accessories neatly.'
     }
 ];
 
