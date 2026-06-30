@@ -12,7 +12,7 @@ const PRODUCTS = [
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 950, 
+        price: 2450, 
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
@@ -29,13 +29,28 @@ const PRODUCTS = [
         price: 1500, 
         category: 'electronics', 
         rating: 5, 
-        image: 'router-1.jpeg', // .jpg se badal kar .jpeg kar diya hai
+        image: 'router-1.jpeg', 
         images: [
             'router-1.jpeg',
             'router-2.jpeg',
             'router-3.jpeg'
         ], 
         description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
+    },
+    { 
+        id: 11, 
+        name: 'PU Leather Passport Holder and Travel Wallet – Multi Card Organizer with Cash Pocket for Men & Women', 
+        price: 700, 
+        category: 'fashion', 
+        rating: 5, 
+        image: 'passport-1.jpeg', // Main Image
+        images: [
+            'passport-1.jpeg', // Pic 1
+            'passport-2.jpeg', // Pic 2
+            'passport-3.jpeg', // Pic 3
+            'passport-4.jpeg'  // Pic 4
+        ], 
+        description: 'Premium quality PU leather passport holder and multi-functional travel wallet. Features a dedicated passport slot, multi-card organizing slots, and a secure cash pocket. Sleek, lightweight, and durable design suitable for both men and women.'
     }
 ];
 
