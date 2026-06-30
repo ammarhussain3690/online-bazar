@@ -9,19 +9,10 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-    { id: 1, name: 'Premium Noise-Cancelling Headphones', price: 8500, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60'] },
-    { id: 2, name: 'Minimalist Leather Chronograph Watch', price: 5200, category: 'fashion', rating: 4, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60'] },
-    { id: 3, name: 'Ergonomic Wireless Mesh Mouse', price: 2400, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60'] },
-    { id: 4, name: 'Eco-Friendly Vacuum Thermos Flask', price: 1800, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60'] },
-    { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 950, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60'] },
-    { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 4500, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60'] },
-    { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 1650, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60'] },
-    { id: 8, name: 'Industrial Oak Accent Side Table', price: 8900, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60'] },
-    
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 950, // Pakistani currency rate set ho gaya
+        price: 2450, 
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
@@ -31,6 +22,20 @@ const PRODUCTS = [
             'p9-3.jpg.jpeg'
         ], 
         description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
+    },
+    { 
+        id: 10, 
+        name: 'Boltex 12V Router Power Bank For Internet Backup', 
+        price: 1500, 
+        category: 'electronics', 
+        rating: 5, 
+        image: 'router-1.jpg', // Main Display Picture
+        images: [
+            'router-1.jpg', // Picture 1
+            'router-2.jpg', // Picture 2
+            'router-3.jpg'  // Picture 3
+        ], 
+        description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
     }
 ];
 
