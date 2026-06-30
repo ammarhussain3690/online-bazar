@@ -9,23 +9,22 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-    { id: 1, name: 'Premium Noise-Cancelling Headphones', price: 299.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60' },
-    { id: 2, name: 'Minimalist Leather Chronograph Watch', price: 189.50, category: 'fashion', rating: 4, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60' },
-    { id: 3, name: 'Ergonomic Wireless Mesh Mouse', price: 79.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60' },
-    { id: 4, name: 'Eco-Friendly Vacuum Thermos Flask', price: 34.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60' },
-    { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 24.50, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60' },
-    { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 145.00, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60' },
-    { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 59.00, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60' },
-    { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60' },
+    { id: 1, name: 'Premium Noise-Cancelling Headphones', price: 299.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60'] },
+    { id: 2, name: 'Minimalist Leather Chronograph Watch', price: 189.50, category: 'fashion', rating: 4, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60'] },
+    { id: 3, name: 'Ergonomic Wireless Mesh Mouse', price: 79.99, category: 'electronics', rating: 5, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60'] },
+    { id: 4, name: 'Eco-Friendly Vacuum Thermos Flask', price: 34.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60'] },
+    { id: 5, name: 'All-Natural Organic Tea Ensemble', price: 24.50, category: 'groceries', rating: 5, image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60'] },
+    { id: 6, name: 'Elite Performance Cross-Trainer Shoes', price: 145.00, category: 'sports', rating: 4, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60'] },
+    { id: 7, name: 'Hydro-Active Repair Skin Serum', price: 59.00, category: 'beauty', rating: 5, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60'] },
+    { id: 8, name: 'Industrial Oak Accent Side Table', price: 210.00, category: 'home', rating: 4, image: 'https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60', images: ['https://images.unsplash.com/photo-1532372320978-9b4d1a358f4c?w=500&auto=format&fit=crop&q=60'] },
     
-    // P9 WIRELESS HEADPHONES WITH YOUR EXACT GITHUB FILE NAMES
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
         price: 25.00, 
         category: 'electronics', 
         rating: 5, 
-        image: 'p9-1.jpg.jpeg', // Fixed extension matching your GitHub repo
+        image: 'p9-1.jpg.jpeg', 
         images: [
             'p9-1.jpg.jpeg',
             'p9-2.jpg.jpeg',
@@ -35,8 +34,10 @@ const PRODUCTS = [
     }
 ];
 
-// --- SHOPPING CART STATE MANAGEMENT ---
+// --- STATE MANAGEMENT ---
 let cart = JSON.parse(localStorage.getItem('online_bazar_cart')) || [];
+let currentModalImages = [];
+let currentImageIndex = 0;
 
 // --- DOM READY BOOTSTRAP ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,38 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initUIComponents() {
+    // Cart Slide Out Hooks
     const cartToggle = document.getElementById('cart-toggle');
     const cartClose = document.getElementById('cart-close');
     const cartOverlay = document.getElementById('cart-overlay');
     const cartSidebar = document.getElementById('cart-sidebar');
 
-    if (cartToggle && cartSidebar) {
-        cartToggle.addEventListener('click', () => cartSidebar.classList.remove('hidden'));
-    }
-    if (cartClose && cartSidebar) {
-        cartClose.addEventListener('click', () => cartSidebar.classList.add('hidden'));
-    }
-    if (cartOverlay && cartSidebar) {
-        cartOverlay.addEventListener('click', () => cartSidebar.classList.add('hidden'));
-    }
+    if (cartToggle && cartSidebar) cartToggle.addEventListener('click', () => cartSidebar.classList.remove('hidden'));
+    if (cartClose && cartSidebar) cartClose.addEventListener('click', () => cartSidebar.classList.add('hidden'));
+    if (cartOverlay && cartSidebar) cartOverlay.addEventListener('click', () => cartSidebar.classList.add('hidden'));
 
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Modal Close Hooks
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const productModal = document.getElementById('product-modal');
 
-    if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            setTimeout(() => mobileMenu.firstElementChild.classList.remove('-translate-x-full'), 10);
-        });
-    }
-    if (mobileClose && mobileMenu) {
-        mobileClose.addEventListener('click', () => {
-            mobileMenu.firstElementChild.classList.add('-translate-x-full');
-            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
-        });
-    }
+    if (modalClose && productModal) modalClose.addEventListener('click', () => productModal.classList.add('hidden'));
+    if (modalOverlay && productModal) modalOverlay.addEventListener('click', () => productModal.classList.add('hidden'));
 
+    // Dynamic Search Filter Logic
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -93,7 +81,6 @@ function initUIComponents() {
 function renderCategories() {
     const container = document.getElementById('categories-grid');
     if (!container) return;
-    
     container.innerHTML = CATEGORIES.map(cat => `
         <div onclick="filterByCategory('${cat.id}')" class="bg-white border border-gray-100 rounded-xl p-4 text-center cursor-pointer shadow-sm hover:border-brand-dark hover:shadow transition-all group">
             <div class="w-12 h-12 bg-gray-50 group-hover:bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 transition-colors">
@@ -109,26 +96,23 @@ function renderProducts(items) {
     if (!container) return;
 
     if (items.length === 0) {
-        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> No products found matching your entry.</div>`;
+        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> No products found.</div>`;
         return;
     }
 
     container.innerHTML = items.map(product => {
         let stars = '';
-        for (let i = 0; i < product.rating; i++) {
-            stars += `<i class="fas fa-star text-yellow-400 text-[10px]"></i>`;
-        }
-        for (let i = product.rating; i < 5; i++) {
-            stars += `<i class="fas fa-star text-gray-200 text-[10px]"></i>`;
+        for (let i = 0; i < 5; i++) {
+            stars += `<i class="fas fa-star ${i < product.rating ? 'text-yellow-400' : 'text-gray-200'} text-[10px]"></i>`;
         }
 
         return `
             <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col group">
-                <div class="relative pt-[100%] bg-gray-50 overflow-hidden">
+                <div onclick="openProductModal(${product.id})" class="relative pt-[100%] bg-gray-50 overflow-hidden cursor-pointer">
                     <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between">
-                    <div>
+                    <div onclick="openProductModal(${product.id})" class="cursor-pointer">
                         <div class="flex items-center space-x-1 mb-1">${stars}</div>
                         <h3 class="text-sm font-bold text-gray-800 line-clamp-2 min-h-[40px] mb-2">${product.name}</h3>
                     </div>
@@ -137,7 +121,7 @@ function renderProducts(items) {
                             <span class="text-lg font-black text-brand-dark">$${product.price.toFixed(2)}</span>
                             <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded text-gray-500 font-medium capitalize">${product.category}</span>
                         </div>
-                        <button onclick="addToCart(${product.id})" class="w-full bg-brand-dark hover:bg-brand-light text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center space-x-2 transition-colors focus:outline-none">
+                        <button onclick="addToCart(${product.id})" class="w-full bg-brand-dark hover:bg-brand-light text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center space-x-2 transition-colors">
                             <i class="fas fa-shopping-cart text-[11px]"></i>
                             <span>Add To Cart</span>
                         </button>
@@ -148,7 +132,63 @@ function renderProducts(items) {
     }).join('');
 }
 
-// --- INTERACTIVE METHODS ---
+// --- SLIDER MODAL FUNCTIONS ---
+window.openProductModal = function(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+
+    currentModalImages = product.images && product.images.length > 0 ? product.images : [product.image];
+    currentImageIndex = 0;
+
+    document.getElementById('modal-title').innerText = product.name;
+    document.getElementById('modal-price').innerText = `$${product.price.toFixed(2)}`;
+    document.getElementById('modal-cat').innerText = product.category;
+    document.getElementById('modal-desc').innerText = product.description || 'No description available.';
+    
+    // Set Add to Cart Button in modal
+    const addBtn = document.getElementById('modal-add-btn');
+    addBtn.onclick = () => {
+        addToCart(product.id);
+        document.getElementById('product-modal').classList.add('hidden');
+    };
+
+    updateModalImage();
+    renderThumbnails();
+
+    document.getElementById('product-modal').classList.remove('hidden');
+};
+
+function updateModalImage() {
+    const mainImg = document.getElementById('modal-main-img');
+    if (mainImg) mainImg.src = currentModalImages[currentImageIndex];
+}
+
+window.changeModalImage = function(direction) {
+    currentImageIndex += direction;
+    if (currentImageIndex >= currentModalImages.length) currentImageIndex = 0;
+    if (currentImageIndex < 0) currentImageIndex = currentModalImages.length - 1;
+    updateModalImage();
+    renderThumbnails();
+};
+
+window.setModalImage = function(index) {
+    currentImageIndex = index;
+    updateModalImage();
+    renderThumbnails();
+};
+
+function renderThumbnails() {
+    const container = document.getElementById('modal-thumbnails');
+    if (!container) return;
+
+    container.innerHTML = currentModalImages.map((img, idx) => `
+        <div onclick="setModalImage(${idx})" class="aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${idx === currentImageIndex ? 'border-brand-dark scale-95' : 'border-transparent opacity-60 hover:opacity-100'}">
+            <img src="${img}" class="w-full h-full object-cover">
+        </div>
+    `).join('');
+}
+
+// --- CART INTERACTION METHODS ---
 window.filterByCategory = function(catId) {
     const filtered = PRODUCTS.filter(p => p.category === catId);
     renderProducts(filtered);
@@ -184,7 +224,8 @@ function updateCartUI() {
     localStorage.setItem('online_bazar_cart', JSON.stringify(cart));
     
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('cart-count').innerText = totalCount;
+    const cartCountEl = document.getElementById('cart-count');
+    if (cartCountEl) cartCountEl.innerText = totalCount;
 
     const container = document.getElementById('cart-items-container');
     const subtotalText = document.getElementById('cart-subtotal');
