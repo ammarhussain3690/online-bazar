@@ -12,14 +12,14 @@ const PRODUCTS = [
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 950, // Price badal kar 950 kar di hai
+        price: 950, 
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
         images: [
-            'p9-1.jpg.jpeg',
-            'p9-2.jpg.jpeg',
-            'p9-3.jpg.jpeg'
+            { type: 'image', src: 'p9-1.jpg.jpeg' },
+            { type: 'image', src: 'p9-2.jpg.jpeg' },
+            { type: 'image', src: 'p9-3.jpg.jpeg' }
         ], 
         description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
     },
@@ -31,9 +31,9 @@ const PRODUCTS = [
         rating: 5, 
         image: 'router-1.jpeg', 
         images: [
-            'router-1.jpeg',
-            'router-2.jpeg',
-            'router-3.jpeg'
+            { type: 'image', src: 'router-1.jpeg' },
+            { type: 'image', src: 'router-2.jpeg' },
+            { type: 'image', src: 'router-3.jpeg' }
         ], 
         description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
     },
@@ -45,27 +45,26 @@ const PRODUCTS = [
         rating: 5, 
         image: 'passport-1.jpeg', 
         images: [
-            'passport-1.jpeg',
-            'passport-2.jpeg',
-            'passport-3.jpeg',
-            'passport-4.jpeg'
+            { type: 'image', src: 'passport-1.jpeg' },
+            { type: 'image', src: 'passport-2.jpeg' },
+            { type: 'image', src: 'passport-3.jpeg' },
+            { type: 'image', src: 'passport-4.jpeg' }
         ], 
         description: 'Premium quality PU leather passport holder and multi-functional travel wallet. Features a dedicated passport slot, multi-card organizing slots, and a secure cash pocket. Sleek, lightweight, and durable design suitable for both men and women.'
     },
     { 
         id: 12, 
-        name: 'Multi Storage Makeup Box Organizer, Creative Organizer for Jewelry, Necklace, Nail Polish, Earring, Cosmetics', 
-        price: 550, 
-        category: 'beauty', 
+        name: 'Rechargeable Mini Pocket Shoppers Sealing Device (with Box Packing)', 
+        price: 500, 
+        category: 'home', 
         rating: 5, 
-        image: 'makeup-1.jpeg', // Main Image
+        image: 'sealer-1.jpeg', 
         images: [
-            'makeup-1.jpeg', // Pic 1
-            'makeup-2.jpeg', // Pic 2
-            'makeup-3.jpeg', // Pic 3
-            'makeup-4.jpeg'  // Pic 4
+            { type: 'image', src: 'sealer-1.jpeg' },
+            { type: 'image', src: 'sealer-2.jpeg' },
+            { type: 'video', src: 'sealer-video.mp4' } // Video file added here
         ], 
-        description: 'Creative and elegant multi-storage makeup box organizer. Perfect desktop organizer for women to store cosmetics, jewelry, necklaces, nail polish, earrings, and other small accessories neatly.'
+        description: 'Convenient and portable Rechargeable Mini Pocket Sealing Device. Perfect for resealing plastic bags, snacks, and shoppers to keep food fresh. Comes with neat box packing and a built-in rechargeable battery.'
     }
 ];
 
@@ -83,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initUIComponents() {
-    // Cart Slide Out Hooks
     const cartToggle = document.getElementById('cart-toggle');
     const cartClose = document.getElementById('cart-close');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -93,7 +91,6 @@ function initUIComponents() {
     if (cartClose && cartSidebar) cartClose.addEventListener('click', () => cartSidebar.classList.add('hidden'));
     if (cartOverlay && cartSidebar) cartOverlay.addEventListener('click', () => cartSidebar.classList.add('hidden'));
 
-    // Modal Close Hooks
     const modalClose = document.getElementById('modal-close');
     const modalOverlay = document.getElementById('modal-overlay');
     const productModal = document.getElementById('product-modal');
@@ -101,7 +98,6 @@ function initUIComponents() {
     if (modalClose && productModal) modalClose.addEventListener('click', () => productModal.classList.add('hidden'));
     if (modalOverlay && productModal) modalOverlay.addEventListener('click', () => productModal.classList.add('hidden'));
 
-    // Dynamic Search Filter Logic
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -172,7 +168,11 @@ window.openProductModal = function(productId) {
     const product = PRODUCTS.find(p => p.id === productId);
     if (!product) return;
 
-    currentModalImages = product.images && product.images.length > 0 ? product.images : [product.image];
+    // Format legacy string arrays to support media objects safely
+    currentModalImages = product.images && product.images.length > 0 
+        ? product.images.map(item => typeof item === 'string' ? { type: 'image', src: item } : item)
+        : [{ type: 'image', src: product.image }];
+        
     currentImageIndex = 0;
 
     document.getElementById('modal-title').innerText = product.name;
@@ -180,7 +180,6 @@ window.openProductModal = function(productId) {
     document.getElementById('modal-cat').innerText = product.category;
     document.getElementById('modal-desc').innerText = product.description || 'No description available.';
     
-    // Set Add to Cart Button in modal
     const addBtn = document.getElementById('modal-add-btn');
     addBtn.onclick = () => {
         addToCart(product.id);
@@ -194,8 +193,16 @@ window.openProductModal = function(productId) {
 };
 
 function updateModalImage() {
-    const mainImg = document.getElementById('modal-main-img');
-    if (mainImg) mainImg.src = currentModalImages[currentImageIndex];
+    const container = document.getElementById('modal-main-img-container') || document.getElementById('modal-main-img').parentElement;
+    if (!container) return;
+
+    const currentMedia = currentModalImages[currentImageIndex];
+
+    if (currentMedia.type === 'video') {
+        container.innerHTML = `<video id="modal-main-img" src="${currentMedia.src}" controls autoplay loop muted class="absolute inset-0 w-full h-full object-cover rounded-lg"></video>`;
+    } else {
+        container.innerHTML = `<img id="modal-main-img" src="${currentMedia.src}" class="absolute inset-0 w-full h-full object-cover rounded-lg">`;
+    }
 }
 
 window.changeModalImage = function(direction) {
@@ -216,11 +223,17 @@ function renderThumbnails() {
     const container = document.getElementById('modal-thumbnails');
     if (!container) return;
 
-    container.innerHTML = currentModalImages.map((img, idx) => `
-        <div onclick="setModalImage(${idx})" class="aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${idx === currentImageIndex ? 'border-brand-dark scale-95' : 'border-transparent opacity-60 hover:opacity-100'}">
-            <img src="${img}" class="w-full h-full object-cover">
-        </div>
-    `).join('');
+    container.innerHTML = currentModalImages.map((media, idx) => {
+        const content = media.type === 'video' 
+            ? `<div class="w-full h-full flex items-center justify-center bg-gray-900 text-white"><i class="fas fa-play text-xs"></i></div>`
+            : `<img src="${media.src}" class="w-full h-full object-cover">`;
+
+        return `
+            <div onclick="setModalImage(${idx})" class="aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${idx === currentImageIndex ? 'border-brand-dark scale-95' : 'border-transparent opacity-60 hover:opacity-100'}">
+                ${content}
+            </div>
+        `;
+    }).join('');
 }
 
 // --- CART INTERACTION METHODS ---
