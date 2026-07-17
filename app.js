@@ -12,7 +12,7 @@ const PRODUCTS = [
     { 
         id: 9, 
         name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 950, 
+        price: 2450, 
         category: 'electronics', 
         rating: 5, 
         image: 'p9-1.jpg.jpeg', 
@@ -62,9 +62,23 @@ const PRODUCTS = [
         images: [
             { type: 'image', src: 'sealer-1.jpeg' },
             { type: 'image', src: 'sealer-2.jpeg' },
-            { type: 'video', src: 'sealer-video.mp4' } // Video file added here
+            { type: 'video', src: 'sealer-video.mp4' }
         ], 
         description: 'Convenient and portable Rechargeable Mini Pocket Sealing Device. Perfect for resealing plastic bags, snacks, and shoppers to keep food fresh. Comes with neat box packing and a built-in rechargeable battery.'
+    },
+    { 
+        id: 13, 
+        name: "Oval Shaped 'C' Shaped Sofa Side Table Laptop Table Coffee Table", 
+        price: 1800, 
+        category: 'home', 
+        rating: 5, 
+        image: 'table-1.jpeg', 
+        images: [
+            { type: 'image', src: 'table-1.jpeg' },
+            { type: 'image', src: 'table-2.jpeg' },
+            { type: 'image', src: 'table-3.jpeg' }
+        ], 
+        description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
     }
 ];
 
@@ -168,7 +182,6 @@ window.openProductModal = function(productId) {
     const product = PRODUCTS.find(p => p.id === productId);
     if (!product) return;
 
-    // Format legacy string arrays to support media objects safely
     currentModalImages = product.images && product.images.length > 0 
         ? product.images.map(item => typeof item === 'string' ? { type: 'image', src: item } : item)
         : [{ type: 'image', src: product.image }];
