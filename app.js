@@ -76,7 +76,8 @@ const PRODUCTS = [
         images: [
             { type: 'image', src: 'table-1.jpeg' },
             { type: 'image', src: 'table-2.jpeg' },
-            { type: 'image', src: 'table-3.jpeg' }
+            { type: 'image', src: 'table-3.jpeg' },
+            { type: 'video', src: 'table-video.mp4' } // 3 pictures + 1 video added
         ], 
         description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
     }
