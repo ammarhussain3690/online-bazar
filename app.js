@@ -1,5 +1,5 @@
 // --- GOOGLE SHEET CONFIGURATION ---
-const SHEET_ID = '1jCOvUWF5p8W3C9HOVdqBfB1_y01Tx87vl_RGZkcZXn0';
+const SHEET_ID = '18XkS4BRQ76bw3ng8PksIjv_6VbdqMhDivsyKxitM_38';
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 
 const CATEGORIES = [
