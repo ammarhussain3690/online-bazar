@@ -1,7 +1,4 @@
-// --- GOOGLE SHEET CONFIGURATION ---
-const SHEET_ID = '18XkS4BRQ76bw3ng8PksIjv_6VbdqMhDivsyKxitM_38';
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-
+// --- DATA SOURCE CONFIGURATIONS ---
 const CATEGORIES = [
     { id: 'electronics', name: 'Electronics', icon: 'fa-laptop' },
     { id: 'fashion', name: 'Fashion & Style', icon: 'fa-tshirt' },
@@ -11,53 +8,91 @@ const CATEGORIES = [
     { id: 'sports', name: 'Sports Apparel', icon: 'fa-dumbbell' }
 ];
 
-let PRODUCTS = [];
+const PRODUCTS = [
+    { 
+        id: 9, 
+        name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
+        price: 2450, 
+        category: 'electronics', 
+        rating: 5, 
+        image: 'p9-1.jpg.jpeg', 
+        images: [
+            { type: 'image', src: 'p9-1.jpg.jpeg' },
+            { type: 'image', src: 'p9-2.jpg.jpeg' },
+            { type: 'image', src: 'p9-3.jpg.jpeg' }
+        ], 
+        description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
+    },
+    { 
+        id: 10, 
+        name: 'Boltex 12V Router Power Bank For Internet Backup', 
+        price: 1500, 
+        category: 'electronics', 
+        rating: 5, 
+        image: 'router-1.jpeg', 
+        images: [
+            { type: 'image', src: 'router-1.jpeg' },
+            { type: 'image', src: 'router-2.jpeg' },
+            { type: 'image', src: 'router-3.jpeg' }
+        ], 
+        description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
+    },
+    { 
+        id: 11, 
+        name: 'PU Leather Passport Holder and Travel Wallet – Multi Card Organizer with Cash Pocket for Men & Women', 
+        price: 700, 
+        category: 'fashion', 
+        rating: 5, 
+        image: 'passport-1.jpeg', 
+        images: [
+            { type: 'image', src: 'passport-1.jpeg' },
+            { type: 'image', src: 'passport-2.jpeg' },
+            { type: 'image', src: 'passport-3.jpeg' },
+            { type: 'image', src: 'passport-4.jpeg' }
+        ], 
+        description: 'Premium quality PU leather passport holder and multi-functional travel wallet. Features a dedicated passport slot, multi-card organizing slots, and a secure cash pocket. Sleek, lightweight, and durable design suitable for both men and women.'
+    },
+    { 
+        id: 12, 
+        name: 'Rechargeable Mini Pocket Shoppers Sealing Device (with Box Packing)', 
+        price: 500, 
+        category: 'home', 
+        rating: 5, 
+        image: 'sealer-1.jpeg', 
+        images: [
+            { type: 'image', src: 'sealer-1.jpeg' },
+            { type: 'image', src: 'sealer-2.jpeg' },
+            { type: 'video', src: 'sealer-video.mp4' }
+        ], 
+        description: 'Convenient and portable Rechargeable Mini Pocket Sealing Device. Perfect for resealing plastic bags, snacks, and shoppers to keep food fresh. Comes with neat box packing and a built-in rechargeable battery.'
+    },
+    { 
+        id: 13, 
+        name: "Oval Shaped 'C' Shaped Sofa Side Table Laptop Table Coffee Table", 
+        price: 1800, 
+        category: 'home', 
+        rating: 5, 
+        image: 'table-1.jpeg', 
+        images: [
+            { type: 'image', src: 'table-1.jpeg' },
+            { type: 'image', src: 'table-2.jpeg' },
+            { type: 'image', src: 'table-3.jpeg' },
+            { type: 'video', src: 'table-video.mp4' } // 3 pictures + 1 video added
+        ], 
+        description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
+    }
+];
+
+// --- STATE MANAGEMENT ---
 let cart = JSON.parse(localStorage.getItem('online_bazar_cart')) || [];
 let currentModalImages = [];
 let currentImageIndex = 0;
-
-// --- FETCH DATA FROM GOOGLE SHEETS ---
-async function fetchProductsFromSheet() {
-    try {
-        const res = await fetch(SHEET_URL);
-        const text = await res.text();
-        
-        // Clean Google Sheet JSON Response
-        const jsonData = JSON.parse(text.substr(47).slice(0, -2));
-        const rows = jsonData.table.rows;
-
-        PRODUCTS = rows.map((row, index) => {
-            const cols = row.c;
-            const rawImages = cols[4]?.v ? cols[4].v.split(',').map(s => s.trim()) : [];
-            
-            const mediaList = rawImages.map(url => {
-                const isVideo = url.endsWith('.mp4') || url.includes('video');
-                return { type: isVideo ? 'video' : 'image', src: url };
-            });
-
-            return {
-                id: index + 1,
-                name: cols[0]?.v || 'No Name',
-                price: Number(cols[1]?.v) || 0,
-                category: cols[2]?.v?.toLowerCase() || 'home',
-                description: cols[3]?.v || '',
-                rating: 5,
-                image: mediaList[0]?.src || '',
-                images: mediaList
-            };
-        });
-
-        renderProducts(PRODUCTS);
-    } catch (err) {
-        console.error("Error loading products from Google Sheet:", err);
-    }
-}
 
 // --- DOM READY BOOTSTRAP ---
 document.addEventListener('DOMContentLoaded', () => {
     initUIComponents();
     renderCategories();
-    fetchProductsFromSheet(); // Live Google Sheet Data
+    renderProducts(PRODUCTS);
     updateCartUI();
 });
 
@@ -107,7 +142,7 @@ function renderProducts(items) {
     if (!container) return;
 
     if (items.length === 0) {
-        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> Loading products from Google Sheet...</div>`;
+        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> No products found.</div>`;
         return;
     }
 
@@ -149,7 +184,7 @@ window.openProductModal = function(productId) {
     if (!product) return;
 
     currentModalImages = product.images && product.images.length > 0 
-        ? product.images 
+        ? product.images.map(item => typeof item === 'string' ? { type: 'image', src: item } : item)
         : [{ type: 'image', src: product.image }];
         
     currentImageIndex = 0;
