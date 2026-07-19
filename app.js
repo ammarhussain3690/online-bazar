@@ -80,21 +80,6 @@ const PRODUCTS = [
             { type: 'video', src: 'table-video.mp4' }
         ], 
         description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
-    },
-    { 
-        id: 14, 
-        name: 'Heavy Duty Waterproof Picnic Mat & Outdoor Beach Blanket (Foldable with Handle)', 
-        price: 1250, 
-        category: 'home', 
-        rating: 5, 
-        image: 'picnic-1.jpeg', 
-        images: [
-            { type: 'image', src: 'picnic-1.jpeg' },
-            { type: 'image', src: 'picnic-2.jpeg' },
-            { type: 'image', src: 'picnic-3.jpeg' },
-            { type: 'video', src: 'picnic-video.mp4' }
-        ], 
-        description: 'Premium quality extra-large outdoor picnic mat. Completely waterproof and sand-proof backing to protect you from damp grass or wet surfaces. Easy to clean, lightweight, and folds down into a neat compact tote bag with a built-in carry handle. Ideal for parks, beaches, camping, and backyard gatherings.'
     }
 ];
 
@@ -126,7 +111,6 @@ function initUIComponents() {
     const productModal = document.getElementById('product-modal');
 
     if (modalClose && productModal) modalClose.addEventListener('click', () => productModal.classList.add('hidden'));
-    if (modalOverlay && productModal) modalOverlay.backgroundColor = ''; 
     if (modalOverlay && productModal) modalOverlay.addEventListener('click', () => productModal.classList.add('hidden'));
 
     const searchInput = document.getElementById('search-input');
@@ -171,7 +155,7 @@ function renderProducts(items) {
         return `
             <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col group">
                 <div onclick="openProductModal(${product.id})" class="relative pt-[100%] bg-gray-50 overflow-hidden cursor-pointer">
-                    <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400?text=No+Image'">
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between">
                     <div onclick="openProductModal(${product.id})" class="cursor-pointer">
