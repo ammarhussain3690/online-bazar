@@ -3,249 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Bazar | Pakistan's Premium Store</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Online Bazar</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0A4020', // Premium Pakistan Dark Green
-                            light: '#145c32',
-                            accent: '#F39C12'
+                            light: '#4ade80',
+                            dark: '#16a34a'
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
 
-    <!-- TOP HEADER UTILITY BANNER -->
-    <div class="bg-brand-dark text-white text-[11px] font-bold py-2 px-4 shadow-inner">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <span><i class="fas fa-phone text-brand-accent mr-1.5"></i> 0314-0259689</span>
-                <span class="hidden sm:inline opacity-75">|</span>
-                <span class="hidden sm:inline"><i class="fas fa-envelope opacity-75 mr-1.5"></i> support@onlinebazar.pk</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span class="bg-brand-light px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider text-brand-accent">🇵🇰 Cash On Delivery Across Pakistan</span>
-            </div>
-        </div>
-    </div>
+    <!-- --- HEADER / NAVBAR --- -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 flex-shrink-0">
+                <div class="w-9 h-9 bg-brand-dark rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md shadow-green-200">O</div>
+                <span class="text-lg font-black tracking-tight text-gray-800">Online<span class="text-brand-dark">Bazar</span></span>
+            </a>
 
-    <!-- MAIN INTERACTIVE NAVBAR -->
-    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-            
-            <!-- BRANDING LOGO -->
-            <div class="flex items-center flex-shrink-0">
-                <a href="index.html" class="text-2xl font-black text-brand-dark tracking-tight">
-                    ONLINE<span class="text-brand-accent">BAZAR</span>
-                </a>
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-md relative">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="search-input" placeholder="Search products..." class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-brand-dark focus:bg-white transition-all">
             </div>
 
-            <!-- SEARCH SYSTEM FIELD -->
-            <div class="flex-1 max-w-md relative hidden md:block">
-                <input type="text" id="search-input" placeholder="Search for products, brands, and categories..." class="w-full pl-11 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-dark focus:bg-white transition-all">
-                <i class="fas fa-search text-gray-400 absolute left-4 top-3.5 text-sm"></i>
-            </div>
-
-            <!-- ACTION BUTTON UTILITIES -->
-            <div class="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
-                <button id="cart-toggle" class="relative p-2.5 text-gray-700 hover:text-brand-dark hover:bg-gray-50 rounded-xl transition-colors">
-                    <i class="fas fa-shopping-basket text-xl"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-accent text-brand-dark text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
-                </button>
-            </div>
+            <!-- Cart Icon Button -->
+            <button id="cart-toggle" class="relative w-10 h-10 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl flex items-center justify-center transition-colors">
+                <i class="fas fa-shopping-basket text-gray-700 text-lg"></i>
+                <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN STOREFRONT WORKSPACE -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+    <!-- --- MAIN CONTENT --- -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-8">
         
-        <!-- HERO DISPLAY BANNER -->
-        <section class="bg-gradient-to-br from-brand-dark to-brand-light rounded-3xl text-white p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-lg mb-12">
-            <div class="relative z-10 max-w-md">
-                <span class="bg-brand-accent text-brand-dark text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Premium Collection</span>
-                <h1 class="text-3xl sm:text-4xl font-black tracking-tight mb-4 leading-tight">Elevate Your Everyday Lifestyle Experience</h1>
-                <p class="text-sm opacity-85 mb-8 font-medium leading-relaxed">Discover custom handpicked curation ranging across cutting-edge technology interfaces to elite corporate fashion wear templates.</p>
-                <a href="#featured-products" class="bg-white text-brand-dark font-bold text-xs px-6 py-3.5 rounded-xl shadow hover:bg-gray-50 transition-colors uppercase tracking-wider">Browse Storefront</a>
-            </div>
-            <div class="absolute right-0 bottom-0 top-0 w-1/2 opacity-10 hidden md:block">
-                <i class="fas fa-store text-[250px] absolute -right-10 -bottom-10 text-white"></i>
+        <!-- Categories Section -->
+        <section>
+            <h2 class="text-sm font-black text-gray-800 uppercase tracking-wider mb-4">Categories</h2>
+            <div id="categories-grid" class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                <!-- JavaScript handles category rendering here -->
             </div>
         </section>
 
-        <!-- CATEGORIES FILTERS SECTION -->
-        <section class="mb-12">
-            <h2 class="text-sm font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center">
-                <span class="w-2 h-4 bg-brand-dark rounded-full mr-2.5 inline-block"></span>Browse Categories
-            </h2>
-            <div id="categories-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <!-- Dynamically loaded by JavaScript -->
-            </div>
-        </section>
-
-        <!-- FEATURED PRODUCTS GRID BLOCK -->
+        <!-- Products Section -->
         <section id="featured-products">
-            <h2 class="text-sm font-black text-gray-900 uppercase tracking-widest mb-6 flex items-center">
-                <span class="w-2 h-4 bg-brand-dark rounded-full mr-2.5 inline-block"></span>Featured Products
-            </h2>
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Dynamically loaded by JavaScript -->
+            <h2 class="text-sm font-black text-gray-800 uppercase tracking-wider mb-4">Featured Products</h2>
+            <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- JavaScript handles product cards here -->
             </div>
         </section>
     </main>
 
-    <!-- PREMIUM DARK GREEN FOOTER -->
-    <footer class="bg-brand-dark text-gray-300 pt-12 pb-6 border-t border-brand-light mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-green-900">
-            
-            <!-- Column 1: About Brand -->
-            <div>
-                <a href="index.html" class="text-2xl font-black text-white tracking-tight block mb-4">
-                    ONLINE<span class="text-brand-accent">BAZAR</span>
-                </a>
-                <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
-                    Pakistan's emerging digital marketplace bringing premium, curated electronics and lifestyle goods straight to your doorstep with trusted Cash on Delivery.
-                </p>
-            </div>
-
-            <!-- Column 2: Navigation Links -->
-            <div>
-                <h4 class="text-sm font-black text-white uppercase tracking-wider mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-accent transition-colors flex items-center"><i class="fas fa-chevron-right text-[9px] mr-2 opacity-50"></i> Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-accent transition-colors flex items-center"><i class="fas fa-chevron-right text-[9px] mr-2 opacity-50"></i> About Us</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-accent transition-colors flex items-center"><i class="fas fa-chevron-right text-[9px] mr-2 opacity-50"></i> Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Support Info -->
-            <div>
-                <h4 class="text-sm font-black text-white uppercase tracking-wider mb-4">Customer Support</h4>
-                <p class="text-xs text-gray-400 mb-2"><i class="fas fa-map-marker-alt text-brand-accent mr-2"></i> Karachi, Pakistan</p>
-                <p class="text-xs text-gray-400 mb-2"><i class="fas fa-phone text-brand-accent mr-2"></i> 0314-0259689</p>
-                <p class="text-xs text-gray-400"><i class="fas fa-envelope text-brand-accent mr-2"></i> support@onlinebazar.pk</p>
-            </div>
-        </div>
-
-        <!-- Bottom Copyright Banner -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-gray-500 font-medium">
-            <p>© 2026 Online Bazar Inc. All Rights Reserved.</p>
-            <div class="flex space-x-4 mt-2 sm:mt-0">
-                <a href="#" class="hover:text-gray-400">Privacy Policy</a>
-                <span>•</span>
-                <a href="#" class="hover:text-gray-400">Terms of Service</a>
-            </div>
-        </div>
+    <!-- --- FOOTER --- -->
+    <footer class="bg-white border-t border-gray-100 py-6 text-center text-xs text-gray-400">
+        <p>&copy; 2026 Online Bazar. All rights reserved.</p>
     </footer>
 
-    <!-- SHOPPING CART PANEL SIDEBAR DRAW-OUT -->
-    <div id="cart-sidebar" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div id="cart-overlay" class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
-                
-                <!-- Cart Top Header Header -->
-                <div class="p-6 border-b border-gray-100 flex items-center justify-between">
-                    <h3 class="text-lg font-black text-gray-900 flex items-center">
-                        <i class="fas fa-shopping-basket text-brand-dark mr-3"></i> Shopping Basket
-                    </h3>
-                    <button id="cart-close" class="text-gray-400 hover:text-gray-500 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
-                        <i class="fas fa-times text-lg"></i>
-                    </button>
+    <!-- --- SHOPPING CART SIDEBAR --- -->
+    <div id="cart-sidebar" class="fixed inset-0 z-50 hidden">
+        <div id="cart-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col animate-slide-in">
+            <!-- Cart Header -->
+            <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-brand-dark"></i>
+                    <h2 class="font-bold text-gray-800">Your Cart</h2>
                 </div>
-
-                <!-- Cart Dynamic Scroll Container Space -->
-                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- Dynamic rendering by JS -->
+                <button id="cart-close" class="text-gray-400 hover:text-gray-600 text-lg"><i class="fas fa-times"></i></button>
+            </div>
+            <!-- Cart Items Container -->
+            <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3">
+                <!-- Cart items load here dynamically -->
+            </div>
+            <!-- Cart Footer -->
+            <div class="p-4 border-t border-gray-100 bg-gray-50 space-y-4">
+                <div class="flex items-center justify-between font-bold text-gray-800">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="text-brand-dark text-lg">Rs. 0</span>
                 </div>
-
-                <!-- Checkout pricing computation block summary area -->
-                <div class="p-6 border-t border-gray-100 bg-gray-50">
-                    <div class="flex justify-between text-sm text-gray-500 font-semibold mb-2">
-                        <span>Estimated Subtotal</span>
-                        <span id="cart-subtotal" class="text-gray-900 font-black">$0.00</span>
-                    </div>
-                    <p class="text-[11px] text-gray-400 mb-4">Shipping processing calculation and potential taxes adjusted securely downstream.</p>
-                    
-                    <a href="checkout.html" class="w-full text-center block bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-4 rounded-xl shadow transition-colors uppercase tracking-wider text-xs">
-                        Proceed To Checkout
-                    </a>
-                </div>
-
+                <button class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 rounded-xl shadow-md transition-colors flex items-center justify-center space-x-2">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Order via WhatsApp</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- PRODUCT DETAIL DYNAMIC POPUP OVERLAY MODAL WITH SLIDER ARROWS -->
-    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 transition-opacity"></div>
+    <!-- --- PRODUCT DETAIL MODAL (SLIDER) --- -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative z-10 animate-fade-in flex flex-col md:flex-row">
+            <!-- Modal Close -->
+            <button id="modal-close" class="absolute right-4 top-4 z-20 bg-white/80 hover:bg-white text-gray-500 w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-100"><i class="fas fa-times"></i></button>
             
-            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
-                <div class="absolute top-4 right-4 z-10">
-                    <button id="modal-close" class="bg-gray-100 hover:bg-gray-200 text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                        <i class="fas fa-times text-lg"></i>
-                    </button>
+            <!-- Left Side: Image Slider Container -->
+            <div class="w-full md:w-1/2 p-6 flex flex-col justify-center bg-gray-50">
+                <div class="relative pt-[100%] w-full" id="modal-main-img-container">
+                    <!-- Main Image or Video will render here dynamically -->
                 </div>
-                
-                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- LEFT SIDE: MAIN IMAGE & ARROWS -->
-                    <div>
-                        <div class="bg-gray-50 rounded-xl overflow-hidden mb-4 border border-gray-100 aspect-square flex items-center justify-center relative group">
-                            <img id="modal-main-img" src="" alt="" class="w-full h-full object-cover">
-                            
-                            <!-- Slider Navigation Buttons -->
-                            <button onclick="changeModalImage(-1)" class="absolute left-3 bg-white/90 hover:bg-white text-gray-800 w-9 h-9 rounded-full shadow flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
-                                <i class="fas fa-chevron-left text-sm"></i>
-                            </button>
-                            <button onclick="changeModalImage(1)" class="absolute right-3 bg-white/90 hover:bg-white text-gray-800 w-9 h-9 rounded-full shadow flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
-                                <i class="fas fa-chevron-right text-sm"></i>
-                            </button>
-                        </div>
-                        <!-- Thumbnails Row System -->
-                        <div id="modal-thumbnails" class="grid grid-cols-4 gap-2"></div>
+                <!-- Navigation Arrows & Thumbnails Grid -->
+                <div class="flex items-center justify-between mt-3 gap-2">
+                    <button onclick="changeModalImage(-1)" class="w-8 h-8 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-sm text-gray-600 hover:bg-gray-50"><i class="fas fa-chevron-left text-xs"></i></button>
+                    <div id="modal-thumbnails" class="flex-1 grid grid-cols-4 gap-1.5 px-1">
+                        <!-- Thumbnails injection -->
                     </div>
-                    
-                    <!-- RIGHT SIDE: TEXT DATA DETAILS -->
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <span id="modal-cat" class="text-xs font-bold uppercase tracking-wider text-green-600 bg-green-50 px-2.5 py-1 rounded-full">Category</span>
-                            <h2 id="modal-title" class="text-2xl font-black text-gray-900 mt-3 mb-2 leading-tight">Product Title</h2>
-                            <div id="modal-stars" class="flex text-yellow-400 mb-4"></div>
-                            <div id="modal-price" class="text-3xl font-black text-brand-dark mb-4">$0.00</div>
-                            <hr class="border-gray-100 my-4">
-                            <p class="text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Description</p>
-                            <p id="modal-desc" class="text-sm text-gray-600 leading-relaxed">Product description text parsing array.</p>
-                        </div>
-                        <div class="mt-8">
-                            <button id="modal-add-btn" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center space-x-3 transition-colors shadow-md">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span>Add To Shopping Basket</span>
-                            </button>
-                        </div>
-                    </div>
+                    <button onclick="changeModalImage(1)" class="w-8 h-8 bg-white border border-gray-200 rounded-lg flex items-center justify-center shadow-sm text-gray-600 hover:bg-gray-50"><i class="fas fa-chevron-right text-xs"></i></button>
+                </div>
+            </div>
+
+            <!-- Right Side: Content Details -->
+            <div class="w-full md:w-1/2 p-6 flex flex-col justify-between border-t md:border-t-0 md:border-l border-gray-100">
+                <div>
+                    <span id="modal-cat" class="text-[10px] bg-green-50 text-brand-dark px-2 py-1 rounded-md font-bold uppercase tracking-wider block w-fit mb-2">Category</span>
+                    <h2 id="modal-title" class="text-xl font-black text-gray-800 leading-tight mb-2">Product Title</h2>
+                    <div id="modal-price" class="text-2xl font-black text-brand-dark mb-4">Rs. 0</div>
+                    <hr class="border-gray-100 my-3">
+                    <p id="modal-desc" class="text-gray-600 text-xs leading-relaxed whitespace-pre-line">Description details live here...</p>
+                </div>
+                <div class="mt-6">
+                    <button id="modal-add-btn" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-colors">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Add To Cart</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- EMERGENCY CUSTOMER CARE WHATSAPP FLOATING HUB -->
-    <a href="https://wa.me/923140259689" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group">
-        <i class="fab fa-whatsapp text-2xl"></i>
-        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 font-bold text-xs uppercase tracking-wider whitespace-nowrap">Chat With Us</span>
-    </a>
-
-    <!-- STORE DATA ARCHITECTURE COMPILER CORE SCRIPT -->
+    <!-- Main App Script Javascript connection -->
     <script src="app.js"></script>
 </body>
 </html>
