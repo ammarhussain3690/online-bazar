@@ -1,4 +1,4 @@
-// --- DATA SOURCE CONFIGURATIONS ---
+// --- SIMPLE LOCAL PRODUCTS DATA ---
 const CATEGORIES = [
     { id: 'electronics', name: 'Electronics', icon: 'fa-laptop' },
     { id: 'fashion', name: 'Fashion & Style', icon: 'fa-tshirt' },
@@ -9,81 +9,59 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-    { 
-        id: 9, 
-        name: 'P9 Wireless Headphones Bluetooth with Microphone (Noise Cancellation)', 
-        price: 2450, 
-        category: 'electronics', 
-        rating: 5, 
-        image: 'p9-1.jpg.jpeg', 
+    {
+        id: 1,
+        name: "Premium Wireless Headphones",
+        price: 4500,
+        category: "electronics",
+        description: "High-quality wireless headphones with deep bass and long-lasting battery life. Perfect for music lovers and gaming.",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
         images: [
-            { type: 'image', src: 'p9-1.jpg.jpeg' },
-            { type: 'image', src: 'p9-2.jpg.jpeg' },
-            { type: 'image', src: 'p9-3.jpg.jpeg' }
-        ], 
-        description: 'Premium P9 Wireless Headphones featuring high-fidelity sound, deep bass, and active noise cancellation. Equipped with a built-in HD microphone for crystal clear calls, soft memory foam earcups for long-lasting comfort, and the latest Bluetooth 5.0 technology.'
+            { type: "image", src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60" }
+        ]
     },
-    { 
-        id: 10, 
-        name: 'Boltex 12V Router Power Bank For Internet Backup', 
-        price: 1500, 
-        category: 'electronics', 
-        rating: 5, 
-        image: 'router-1.jpeg', 
+    {
+        id: 2,
+        name: "Classic Leather Watch",
+        price: 3200,
+        category: "fashion",
+        description: "Elegant wrist watch with a genuine leather strap. Fits perfectly for both casual outings and formal meetings.",
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60",
         images: [
-            { type: 'image', src: 'router-1.jpeg' },
-            { type: 'image', src: 'router-2.jpeg' },
-            { type: 'image', src: 'router-3.jpeg' }
-        ], 
-        description: 'High-quality Boltex 12V Router Power Bank designed to keep your internet running smoothly during power outages. Perfect backup solution for Wi-Fi routers, modems, and CCTV cameras with intelligent overcharge protection.'
+            { type: "image", src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60" }
+        ]
     },
-    { 
-        id: 11, 
-        name: 'PU Leather Passport Holder and Travel Wallet – Multi Card Organizer with Cash Pocket for Men & Women', 
-        price: 700, 
-        category: 'fashion', 
-        rating: 5, 
-        image: 'passport-1.jpeg', 
+    {
+        id: 3,
+        name: "Ergonomic Office Chair",
+        price: 12500,
+        category: "home",
+        description: "Comfortable mesh back chair with lumbar support to keep your posture perfect during long working hours.",
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop&q=60",
         images: [
-            { type: 'image', src: 'passport-1.jpeg' },
-            { type: 'image', src: 'passport-2.jpeg' },
-            { type: 'image', src: 'passport-3.jpeg' },
-            { type: 'image', src: 'passport-4.jpeg' }
-        ], 
-        description: 'Premium quality PU leather passport holder and multi-functional travel wallet. Features a dedicated passport slot, multi-card organizing slots, and a secure cash pocket. Sleek, lightweight, and durable design suitable for both men and women.'
+            { type: "image", src: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop&q=60" }
+        ]
     },
-    { 
-        id: 12, 
-        name: 'Rechargeable Mini Pocket Shoppers Sealing Device (with Box Packing)', 
-        price: 500, 
-        category: 'home', 
-        rating: 5, 
-        image: 'sealer-1.jpeg', 
+    {
+        id: 4,
+        name: "Saga Picnic Set - 37 Pieces",
+        price: 3000,
+        category: "crockery",
+        description: "Make every picnic memorable with the Saga Picnic Set! 🌿🍽️ This 37-piece picnic set includes everything you need for outdoor dining. Durable, lightweight, food-grade, and perfect for family gatherings, picnics, camping, and travel.",
+        rating: 5,
+        image: "picnic1.jpg", // Yeh main page par card par dikhegi
         images: [
-            { type: 'image', src: 'sealer-1.jpeg' },
-            { type: 'image', src: 'sealer-2.jpeg' },
-            { type: 'video', src: 'sealer-video.mp4' }
-        ], 
-        description: 'Convenient and portable Rechargeable Mini Pocket Sealing Device. Perfect for resealing plastic bags, snacks, and shoppers to keep food fresh. Comes with neat box packing and a built-in rechargeable battery.'
-    },
-    { 
-        id: 13, 
-        name: "Oval Shaped 'C' Shaped Sofa Side Table Laptop Table Coffee Table", 
-        price: 1800, 
-        category: 'home', 
-        rating: 5, 
-        image: 'table-1.jpeg', 
-        images: [
-            { type: 'image', src: 'table-1.jpeg' },
-            { type: 'image', src: 'table-2.jpeg' },
-            { type: 'image', src: 'table-3.jpeg' },
-            { type: 'video', src: 'table-video.mp4' } // 3 pictures + 1 video added
-        ], 
-        description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
+            { type: "image", src: "picnic1.jpg" },
+            { type: "image", src: "picnic2.jpg" },
+            { type: "image", src: "picnic3.jpg" },
+            { type: "image", src: "picnic4.jpg" }
+        ]
     }
 ];
 
-// --- STATE MANAGEMENT ---
 let cart = JSON.parse(localStorage.getItem('online_bazar_cart')) || [];
 let currentModalImages = [];
 let currentImageIndex = 0;
@@ -142,7 +120,7 @@ function renderProducts(items) {
     if (!container) return;
 
     if (items.length === 0) {
-        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> No products found.</div>`;
+        container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm"><i class="fas fa-box-open text-3xl mb-2 block"></i> Koi product nahi mila.</div>`;
         return;
     }
 
@@ -155,7 +133,7 @@ function renderProducts(items) {
         return `
             <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col group">
                 <div onclick="openProductModal(${product.id})" class="relative pt-[100%] bg-gray-50 overflow-hidden cursor-pointer">
-                    <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <img src="${product.image}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://via.placeholder.com/400'">
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between">
                     <div onclick="openProductModal(${product.id})" class="cursor-pointer">
@@ -184,7 +162,7 @@ window.openProductModal = function(productId) {
     if (!product) return;
 
     currentModalImages = product.images && product.images.length > 0 
-        ? product.images.map(item => typeof item === 'string' ? { type: 'image', src: item } : item)
+        ? product.images 
         : [{ type: 'image', src: product.image }];
         
     currentImageIndex = 0;
@@ -207,7 +185,7 @@ window.openProductModal = function(productId) {
 };
 
 function updateModalImage() {
-    const container = document.getElementById('modal-main-img-container') || document.getElementById('modal-main-img').parentElement;
+    const container = document.getElementById('modal-main-img-container');
     if (!container) return;
 
     const currentMedia = currentModalImages[currentImageIndex];
@@ -215,7 +193,7 @@ function updateModalImage() {
     if (currentMedia.type === 'video') {
         container.innerHTML = `<video id="modal-main-img" src="${currentMedia.src}" controls autoplay loop muted class="absolute inset-0 w-full h-full object-cover rounded-lg"></video>`;
     } else {
-        container.innerHTML = `<img id="modal-main-img" src="${currentMedia.src}" class="absolute inset-0 w-full h-full object-cover rounded-lg">`;
+        container.innerHTML = `<img id="modal-main-img" src="${currentMedia.src}" class="absolute inset-0 w-full h-full object-cover rounded-lg" onerror="this.src='https://via.placeholder.com/400'">`;
     }
 }
 
@@ -240,7 +218,7 @@ function renderThumbnails() {
     container.innerHTML = currentModalImages.map((media, idx) => {
         const content = media.type === 'video' 
             ? `<div class="w-full h-full flex items-center justify-center bg-gray-900 text-white"><i class="fas fa-play text-xs"></i></div>`
-            : `<img src="${media.src}" class="w-full h-full object-cover">`;
+            : `<img src="${media.src}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400'">`;
 
         return `
             <div onclick="setModalImage(${idx})" class="aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${idx === currentImageIndex ? 'border-brand-dark scale-95' : 'border-transparent opacity-60 hover:opacity-100'}">
@@ -305,7 +283,7 @@ function updateCartUI() {
         subtotal += cost;
         return `
             <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
-                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md bg-white border border-gray-200 flex-shrink-0">
+                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md bg-white border border-gray-200 flex-shrink-0" onerror="this.src='https://via.placeholder.com/400'">
                 <div class="flex-1 min-w-0">
                     <h4 class="text-xs font-bold text-gray-800 truncate mb-1">${item.name}</h4>
                     <span class="text-sm font-black text-brand-dark block mb-2">Rs. ${item.price.toLocaleString()}</span>
