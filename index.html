@@ -22,6 +22,14 @@
             }
         }
     </script>
+    <style>
+        /* Responsive adjustments for standard screen layouts */
+        @media (min-width: 1024px) {
+            #products-grid {
+                grid-template-columns: repeat(4, minmax(0, 15fr)) !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
@@ -57,7 +65,8 @@
             <h2 class="text-base font-black uppercase tracking-wider text-gray-400 mb-4 flex items-center gap-2">
                 <i class="fas fa-th-large text-xs"></i> Browse Categories
             </h2>
-            <div id="categories-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- Fixed grid to keep categories tidy across all screen widths -->
+            <div id="categories-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
                 <!-- Dynamically populated via renderCategories() -->
             </div>
         </section>
@@ -67,7 +76,8 @@
             <h2 class="text-base font-black uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
                 <i class="fas fa-fire text-xs text-orange-500"></i> Hot Selling Products
             </h2>
-            <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Laptop par 4 columns, Tablet par 3 columns, Mobile par 2 columns banata hai -->
+            <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 <!-- Dynamically populated via renderProducts() -->
             </div>
         </section>
@@ -76,12 +86,8 @@
 
     <!-- --- SLIDING CART SIDEBAR --- -->
     <div id="cart-sidebar" class="fixed inset-0 z-50 hidden">
-        <!-- Backdrop Backdrop Overlay -->
         <div id="cart-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
-        
-        <!-- Sidebar Panel Container -->
-        <div class="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl flex flex-col justify-between animate-in slide-in-from-right duration-200">
-            <!-- Cart Header -->
+        <div class="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl flex flex-col justify-between">
             <div class="p-4 border-b border-gray-200 flex items-center justify-between">
                 <h3 class="font-black text-gray-800 text-base flex items-center gap-2">
                     <i class="fas fa-shopping-basket text-brand-dark"></i> Your Cart Basket
@@ -91,12 +97,10 @@
                 </button>
             </div>
 
-            <!-- Cart Items Container (Scrollable) -->
             <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3">
                 <!-- Dynamically populated via updateCartUI() -->
             </div>
 
-            <!-- Cart Footer Summary Panel -->
             <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-4">
                 <div class="flex items-center justify-between font-bold">
                     <span class="text-sm text-gray-600">Subtotal Amount:</span>
@@ -112,50 +116,41 @@
 
     <!-- --- PRODUCT OVERLAY QUICK VIEW MODAL (WITH SLIDER) --- -->
     <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
-        <!-- Modal Backdrop -->
         <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
         
-        <!-- Modal Base Card Wrapper -->
-        <div class="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl relative z-10 grid grid-cols-1 md:grid-cols-2">
-            <!-- Absolute Close Button -->
+        <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative z-10 grid grid-cols-1 md:grid-cols-2">
             <button id="modal-close" class="absolute top-3 right-3 z-20 w-8 h-8 bg-white/80 hover:bg-white text-gray-500 hover:text-gray-800 rounded-full shadow flex items-center justify-center transition-colors">
                 <i class="fas fa-times text-sm"></i>
             </button>
 
-            <!-- Left Grid Pane: Multi-Media Slider Component -->
-            <div class="p-6 bg-gray-50 flex flex-col justify-between gap-4 border-r border-gray-100">
-                <!-- Large Active Feature Container -->
+            <div class="p-4 sm:p-6 bg-gray-50 flex flex-col justify-between gap-4 border-r border-gray-100">
                 <div id="modal-main-img-container" class="relative w-full pt-[100%] rounded-xl shadow-inner bg-white overflow-hidden">
                     <img id="modal-main-img" src="" class="absolute inset-0 w-full h-full object-cover">
                     
-                    <!-- Left Arrow Slider Controller -->
-                    <button onclick="changeModalImage(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all">
+                    <button onclick="changeModalImage(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all">
                         <i class="fas fa-chevron-left text-xs"></i>
                     </button>
-                    <!-- Right Arrow Slider Controller -->
-                    <button onclick="changeModalImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all">
+                    <button onclick="changeModalImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all">
                         <i class="fas fa-chevron-right text-xs"></i>
                     </button>
                 </div>
 
-                <!-- Small Row Item Navigation Thumbnails -->
                 <div id="modal-thumbnails" class="grid grid-cols-4 gap-2">
                     <!-- Dynamically populated via renderThumbnails() -->
                 </div>
             </div>
 
-            <!-- Right Grid Pane: Structured Product Text Summary Content -->
-            <div class="p-6 flex flex-col justify-between gap-6">
-                <div class="space-y-3">
-                    <span id="modal-cat" class="inline-block text-[10px] uppercase tracking-wider bg-green-50 text-brand-dark px-2.5 py-1 rounded-md font-extrabold">Category</span>
-                    <h2 id="modal-title" class="text-base font-black text-gray-800 leading-tight">Product Title Text</h2>
-                    <div id="modal-price" class="text-xl font-black text-brand-dark">Rs. 0</div>
+            <div class="p-4 sm:p-6 flex flex-col justify-between gap-4">
+                <div class="space-y-2">
+                    <span id="modal-cat" class="inline-block text-[10px] uppercase tracking-wider bg-green-50 text-brand-dark px-2 py-0.5 rounded font-extrabold">Category</span>
+                    <h2 id="modal-title" class="text-sm font-bold text-gray-800 leading-tight">Product Title Text</h2>
+                    <div id="modal-price" class="text-base font-black text-brand-dark">Rs. 0</div>
                     <hr class="border-gray-100">
-                    <p id="modal-desc" class="text-xs text-gray-500 leading-relaxed max-h-[180px] overflow-y-auto pr-1">Product Description details go here...</p>
+                    <p id="modal-desc" class="text-[11px] text-gray-500 leading-relaxed max-h-[140px] overflow-y-auto pr-1">Product Description details go here...</p>
                 </div>
 
-                <button id="modal-add-btn" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 px-4 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
-                    <i class="fas fa-shopping-cart text-xs"></i>
+                <button id="modal-add-btn" class="w-full bg-brand-dark hover:bg-brand-light text-white text-xs font-bold py-2.5 px-3 rounded-lg shadow transition-colors flex items-center justify-center gap-2">
+                    <i class="fas fa-shopping-cart text-[10px]"></i>
                     <span>Add Item to Order Basket</span>
                 </button>
             </div>
