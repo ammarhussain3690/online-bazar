@@ -23,7 +23,6 @@
         }
     </script>
     <style>
-        /* Responsive adjustments for standard screen layouts */
         @media (min-width: 1024px) {
             #products-grid {
                 grid-template-columns: repeat(4, minmax(0, 15fr)) !important;
@@ -36,12 +35,10 @@
     <!-- --- HEADER / NAVIGATION --- -->
     <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-            <!-- Brand Logo -->
             <a href="#" class="text-xl font-black text-brand-dark flex items-center gap-2 flex-shrink-0">
                 <i class="fas fa-shopping-bag"></i> Online Bazar
             </a>
 
-            <!-- Live Search Bar -->
             <div class="flex-1 max-w-md relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
                     <i class="fas fa-search text-xs"></i>
@@ -50,7 +47,6 @@
                     class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent transition-all">
             </div>
 
-            <!-- Cart Trigger Icon Button -->
             <button id="cart-toggle" class="relative p-2.5 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-700">
                 <i class="fas fa-shopping-cart text-base"></i>
                 <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow">0</span>
@@ -65,7 +61,6 @@
             <h2 class="text-base font-black uppercase tracking-wider text-gray-400 mb-4 flex items-center gap-2">
                 <i class="fas fa-th-large text-xs"></i> Browse Categories
             </h2>
-            <!-- Fixed grid to keep categories tidy across all screen widths -->
             <div id="categories-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
                 <!-- Dynamically populated via renderCategories() -->
             </div>
@@ -76,7 +71,6 @@
             <h2 class="text-base font-black uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
                 <i class="fas fa-fire text-xs text-orange-500"></i> Hot Selling Products
             </h2>
-            <!-- Laptop par 4 columns, Tablet par 3 columns, Mobile par 2 columns banata hai -->
             <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 <!-- Dynamically populated via renderProducts() -->
             </div>
@@ -106,7 +100,8 @@
                     <span class="text-sm text-gray-600">Subtotal Amount:</span>
                     <span id="cart-subtotal" class="text-lg text-brand-dark font-black">Rs. 0</span>
                 </div>
-                <button onclick="alert('Proceeding to Checkout...')" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 px-4 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
+                <!-- Linked with WhatsApp submit function -->
+                <button onclick="sendWhatsAppOrder()" class="w-full bg-brand-dark hover:bg-brand-light text-white font-bold py-3 px-4 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
                     <span>Order via WhatsApp / Checkout</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </button>
@@ -157,7 +152,6 @@
         </div>
     </div>
 
-    <!-- --- LINK APPLICATION SCRIPTS --- -->
     <script src="app.js"></script>
 </body>
 </html>
