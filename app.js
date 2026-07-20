@@ -328,3 +328,32 @@ function updateCartUI() {
 
     subtotalText.innerText = `Rs. ${subtotal.toLocaleString()}`;
 }
+
+// --- WHATSAPP CHECKOUT ORDER INTEGRATION ---
+window.sendWhatsAppOrder = function() {
+    if (cart.length === 0) {
+        alert("Aap ka cart khali hai!");
+        return;
+    }
+
+    // Aapka active personal WhatsApp number link ho chuka hai
+    const phoneNumber = "923140259689"; 
+    
+    let message = "*--- NAYA ORDER (ONLINE BAZAR) ---*\n\n";
+    let grandTotal = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        grandTotal += itemTotal;
+        message += `${index + 1}. *${item.name}*\n`;
+        message += `   Qty: ${item.quantity} x Rs. ${item.price.toLocaleString()}\n`;
+        message += `   Total: Rs. ${itemTotal.toLocaleString()}\n\n`;
+    });
+
+    message += `*Grand Total Amount: Rs. ${grandTotal.toLocaleString()}*`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+};
