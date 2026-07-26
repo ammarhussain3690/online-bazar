@@ -80,6 +80,22 @@ const PRODUCTS = [
             { type: 'video', src: 'table-video.mp4' }
         ], 
         description: 'Modern oval C-shaped sofa side table. Designed to slide easily under your sofa or bed for convenient laptop use, coffee, or snacks. Sturdy frame with a sleek finish, making it a perfect functional space saver for home living.'
+    },
+    { 
+        id: 14, 
+        name: 'Magnetic Phone Holder – Strong Magnetic Suction Mount for Car, Desk & Tabletop Use', 
+        price: 500, 
+        category: 'electronics', 
+        rating: 5, 
+        image: 'holder-1.jpeg', 
+        images: [
+            { type: 'image', src: 'holder-1.jpeg' },
+            { type: 'image', src: 'holder-2.jpeg' },
+            { type: 'image', src: 'holder-3.jpeg' },
+            { type: 'image', src: 'holder-4.jpeg' },
+            { type: 'video', src: 'holder-video.mp4' }
+        ], 
+        description: 'High-strength Magnetic Phone Mount designed for versatile multi-surface use including cars, office desks, and tabletop setups. Powerful magnetic grip ensures steady hold even on rocky roads, featuring 360-degree rotation for effortless view adjustments.'
     }
 ];
 
@@ -336,7 +352,6 @@ window.sendWhatsAppOrder = function() {
         return;
     }
 
-    // Aapka active personal WhatsApp number link ho chuka hai
     const phoneNumber = "923140259689"; 
     
     let message = "*--- NAYA ORDER (ONLINE BAZAR) ---*\n\n";
